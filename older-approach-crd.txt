@@ -1,0 +1,5 @@
+"${execDir}"/generate-groups.sh all github.com/Arnobkumarsaha/raka/pkg/client github.com/Arnobkumarsaha/raka/pkg/apis raihankhan.github.io:v1alpha1 --go-header-file "${execDir}"/hack/boilerplate.go.txt
+
+controller-gen rbac:roleName=controller-perms crd paths=./... output:crd:dir=/home/arnob/go/src/github.com/Arnobkumarsaha/raka/manifest output:stdout
+
+

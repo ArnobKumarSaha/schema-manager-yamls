@@ -1,0 +1,72 @@
+
+/*
+var sslArgs string
+if mongo.Spec.SSLMode != kdm.SSLModeDisabled {
+	if mongo.Spec.TLS == nil {
+		return nil, fmt.Errorf("SSLMode in mongoDB object in enables, but issuerRef is not given")
+	}
+	sslArgs = fmt.Sprintf("--tls --tlsCAFile %v/%v --tlsCertificateKeyFile %v/%v",
+		kdm.MongoCertDirectory, kdm.TLSCACertFileName, kdm.MongoCertDirectory, kdm.MongoClientFileName)
+}
+	//core_util.IsOwnedBy()
+*/
+
+/*
+mongo --tls --tlsCAFile /var/run/mongodb/tls/ca.crt --tlsCertificateKeyFile /var/run/mongodb/tls/client.pem admin --host localhost --authenticationMechanism MONGODB-X509 --authenticationDatabase='$external' -u "CN=root,OU=client,O=kubedb" --quiet
+*/
+
+/*
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./ca.key -out ./ca.crt -subj "/CN=mongo/O=kubedb"
+kubectl create secret tls mongo-ca-secret --cert=ca.crt --key=ca.key --namespace=tls-db
+
+Applying issuer & Mongo
+default-token & ca-secret is already there
+new secrets will be generated automatically -> auth, key, token
+if tls -> matrics-exporter-cert, server-cert, client-cert, token
+
+kubectl exec -it mgo-rs-tls-0 -n tls-db bash   =>   ls /var/run/mongodb/tls
+openssl x509 -in /var/run/mongodb/tls/client.pem -inform PEM -subject -nameopt RFC2253 -noout
+mongo --tls --tlsCAFile /var/run/mongodb/tls/ca.crt --tlsCertificateKeyFile /var/run/mongodb/tls/client.pem admin --host localhost --authenticationMechanism MONGODB-X509 --authenticationDatabase='$external' -u "CN=root,O=kubedb" --quiet
+db.adminCommand({ getParameter:1, sslMode:1 })
+use $external     =>   show users
+
+
+kubectl delete mongodb -n tls-db mgo-tls
+kubectl delete issuer -n tls-db mongo-ca-issuer
+kubectl delete ns tls-db
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# From ensureRestoreSession
+
+/*params := kd_config.MongoDBConfiguration{
+			TypeMeta: metav1.TypeMeta{
+				APIVersion: kd_config.SchemeGroupVersion.String(),
+				Kind:       kd_config.ResourceKindMongoConfiguration,
+			},
+			Stash: mongoVer.Spec.Stash,
+		}
+			&runtime.RawExtension{
+				Object: &params,
+			}
+		rs.Spec.Task = stash.TaskRef{
+			Name: params.Stash.Addon.RestoreTask.Name,
+			Params: []stash.Param{
+				{
+					Name:  params.Stash.Addon.RestoreTask.Name,
+					Value: params.Stash.Addon.RestoreTask.Params[0].Value,
+				},
+			},
+		}*/

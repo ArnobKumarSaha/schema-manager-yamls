@@ -1,0 +1,20 @@
+apiVersion: stash.appscode.com/v1beta1
+kind: RestoreSession
+metadata:
+  name: sample-mgo-restore
+  namespace: same
+spec:
+  task:
+    name: mongodb-restore-4.4.6
+    params:
+    - name: args
+      value: --authenticationDatabase admin --authenticationDatabase mydb --db mydb
+  repository:
+    name: local-repo
+  target:
+    ref:
+      apiVersion: appcatalog.appscode.com/v1alpha1
+      kind: AppBinding
+      name: mongodb #restored-mgo
+  rules:
+  - snapshots: [latest]

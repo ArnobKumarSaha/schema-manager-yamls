@@ -1,0 +1,134 @@
+{
+	"role" : "userAdminAnyDatabase",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "enableSharding",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "backup",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "clusterMonitor",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "readWriteAnyDatabase",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "readAnyDatabase",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "restore",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "root",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "read",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "clusterManager",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "__system",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "dbAdminAnyDatabase",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "hostManager",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "dbOwner",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "__queryableBackup",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "dbAdmin",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "userAdmin",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "clusterAdmin",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+{
+	"role" : "readWrite",
+	"db" : "admin",
+	"isBuiltin" : true,
+	"roles" : [ ],
+	"inheritedRoles" : [ ]
+}
+

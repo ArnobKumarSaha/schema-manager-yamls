@@ -1,0 +1,24 @@
+roles::
+
+common roles on all dbs =>
+dbOwner 
+userAdmin 
+dbAdmin 
+read 
+enableSharding 
+readWrite 
+
+special in admin db =>
+__system 
+restore 
+root 
+__queryableBackup 
+clusterMonitor 
+clusterManager 
+hostManager 
+backup 
+clusterAdmin 
+readAnyDatabase 
+readWriteAnyDatabase 
+dbAdminAnyDatabase 
+userAdminAnyDatabase

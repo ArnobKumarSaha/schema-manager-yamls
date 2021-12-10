@@ -1,0 +1,20 @@
+apiVersion: catalog.kubedb.com/v1alpha1
+kind: MongoDBVersion
+metadata:
+  name: "4.2.3"
+  labels:
+    app: kubedb
+spec:
+  version: "4.2.3"
+  deprecated: false
+  db: # to create expected MongoDB database
+    image: "${KUBEDB_DOCKER_REGISTRY}/mongo:4.2.3"
+  exporter: # to export Prometheus metrics
+    image: "${KUBEDB_DOCKER_REGISTRY}/percona-mongodb-exporter:v0.8.0"
+  # spec.tools.image -> to take backup and initialize database from a snapshot.
+  initContainer:
+    image: "${KUBEDB_DOCKER_REGISTRY}/mongodb-init:4.2-v1"
+  podSecurityPolicies:
+    databasePolicyName: mongodb-db
+  replicationModeDetector:
+    image: "${KUBEDB_DOCKER_REGISTRY}/replication-mode-detector:v0.3.2"

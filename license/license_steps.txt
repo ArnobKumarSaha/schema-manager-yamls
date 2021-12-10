@@ -1,0 +1,68 @@
+Taken in 6th december, 2021
+
+https://license-issuer.appscode.com/?p=kubedb-enterprise
+kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'
+
+helm repo add appscode https://charts.appscode.com/stable/
+helm repo update
+
+
+***** KubeDB ---------------------------------------------------------------------
+helm search repo appscode/kubedb
+
+helm install kubedb appscode/kubedb \
+    --version v2021.11.24 \
+    --namespace kubedb --create-namespace \
+    --set kubedb-enterprise.enabled=true \
+    --set kubedb-autoscaler.enabled=true \
+    --set-file global.license=/home/arnob/files/license/kubedb.txt 
+
+watch kubectl get pods --all-namespaces -l "app.kubernetes.io/instance=kubedb"
+
+helm uninstall kubedb-enterprise --namespace kubedb
+
+
+***** KubeVault -------------------------------------------------------------------
+helm search repo appscode/kubevault
+
+helm install kubevault appscode/kubevault \
+    --version v2021.10.11 \
+    --namespace kubevault --create-namespace \
+    --set-file global.license=/home/arnob/files/license/kubevault.txt 
+
+watch kubectl get pods --all-namespaces -l "app.kubernetes.io/instance=kubevault"
+
+helm uninstall kubevault-enterprise --namespace kubevault
+
+
+***** Stash
+-------------------------------------------------------------------
+helm search repo appscode/stash
+
+helm install stash appscode/stash             \
+  --version v2021.11.24                  \
+  --namespace kube-system                       \
+  --set features.enterprise=true                \
+  --set-file global.license=/home/arnob/files/license/stash.txt
+
+kubectl get pods --all-namespaces -l app.kubernetes.io/name=stash-enterprise --watch
+
+helm uninstall stash --namespace kube-system
+kubectl delete crd -l=app.kubernetes.io/name=stash
+
+
+***** cert-manager
+-------------------------------------------------------------------
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --version v1.6.1 \
+  --set installCRDs=true
+
+helm --namespace cert-manager delete cert-manager
+kubectl delete namespace cert-manager
+

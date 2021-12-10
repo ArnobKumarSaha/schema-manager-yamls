@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: demo-job
+  namespace: dev # USER_NAMESPACE
+spec:
+  template:
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        imagePullPolicy: Always
+        env:
+        - name: MONGODB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: read-write-access-req-xzlffv # HERE_THE_SECRET_NAME
+              #namespace: dev # The namespace of the SecretAccessRequest actually
+              key: username
+        - name: MONGODB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: read-write-access-req-xzlffv # HERE_THE_SECRET_NAME
+              key: password
+        - name: MONGODB_DATABASE_NAME
+          value: mydb # will get this from applied MongoDBDatabase CRD
+        command: ["/bin/sh"]
+        args: ["-c", "mongo --host mongodb.db.svc.cluster.local --authenticationDatabase $MONGODB_DATABASE_NAME -u $MONGODB_USERNAME -p $MONGODB_PASSWORD"]
+        # readinessProbe:  Is it required ? 
+        #   exec:
+        #     command:
+        #     - do something here .... 
+        #   initialDelaySeconds: 5
+        #   periodSeconds: 5
+      restartPolicy: OnFailure
+  backoffLimit: 5

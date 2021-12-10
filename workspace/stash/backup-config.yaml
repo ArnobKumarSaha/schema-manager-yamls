@@ -1,0 +1,25 @@
+apiVersion: stash.appscode.com/v1beta1
+kind: BackupConfiguration
+metadata:
+  name: mongo-backup
+  namespace: same
+spec:
+  schedule: "*/1 * * * *"
+  task:
+    name: mongodb-backup-4.4.6
+  repository:
+    name: local-repo
+  runtimeSettings: # to use with hostPath volume
+    container:
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+  target:
+    ref:
+      apiVersion: appcatalog.appscode.com/v1alpha1
+      kind: AppBinding
+      name: mongodb
+  retentionPolicy:
+    name: keep-last-5
+    keepLast: 5
+    prune: true

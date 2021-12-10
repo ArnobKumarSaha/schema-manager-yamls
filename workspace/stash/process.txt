@@ -1,0 +1,46 @@
+mongo-backup
+secret => echo -n 'changeit' > RESTIC_PASSWORD
+    kubectl create secret generic -n stash-try local-secret-stash --from-file=./RESTIC_PASSWORD
+
+linode ::
+ZJMDHEAIYZGC4KHXAEGJ <- AccessKey
+azZfXmhuj5LcR5SRUWSfncrLtCmtgG0WrIiV48Ie <- SecretKey 
+
+echo -n '<your-aws-access-key-id-here>' > AWS_ACCESS_KEY_ID
+$ echo -n '<your-aws-secret-access-key-here>' > AWS_SECRET_ACCESS_KEY
+$ kubectl create secret generic -n db linode-secret-stash \
+    --from-file=./RESTIC_PASSWORD \
+    --from-file=./AWS_ACCESS_KEY_ID \
+    --from-file=./AWS_SECRET_ACCESS_KEY
+
+repository
+Backupconfiguration
+
+mongo-restore
+restore-session
+
+-----------------------------------------------
+applying MongoDB object creates appbinding . [ Which contains service(name, port), target replicaset's dsn, stash backup-task & restore-task name. ] 
+Backupconfiguration creates cronJob. And this cronjob creates job -> pod -> backupSession on regular interval
+
+task , repository , target , schedule , retensionPolicy, runtimeSettings  <---- In Backup
+task , repository , target , rules  <---- In restore
+target refers to the corresponding appbinding (which was created when applying MongoDB)
+
+
+///////////////////////////////////////////////////////////////////
+watch kubectl get pods,jobs,cronjobs,appbinding,mongodb,backupconfiguration,backupsession,repository,restoresession -n stash-try
+
+If MongoDbDatabase's DeletionTimeStamp is zero :
+    a) Add finalizer to this crd 
+    b) Check if the Database named 'obj.Spec.DatabaseSchema.Name' already exist (by counting collections), if not add Entry, if yes return
+Else :
+    a) If entry found, Drop the database, Delete Entry, else Do nothing
+    b) Remove finalizer from this crd 
+
+/*Params: []stash.Param{
+    {
+        Name:  "args",
+        Value: fmt.Sprintf("--authenticationDatabase %v --db %v", obj.Spec.DatabaseSchema.Name, obj.Spec.DatabaseSchema.Name),
+    },
+},*/

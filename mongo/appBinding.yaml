@@ -1,0 +1,30 @@
+apiVersion: appcatalog.appscode.com/v1alpha1
+kind: AppBinding
+metadata:
+  name: quick-postgres
+  namespace: demo
+  labels:
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: quick-postgres
+    app.kubernetes.io/managed-by: kubedb.com
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/version: "10.2"-v2
+spec:
+  type: kubedb.com/postgres # Group / Resource.  will be used by stash
+  secret: # credentials to access to database.
+    name: quick-postgres-auth
+  clientConfig:
+    service: # In case,  running the database inside the cluster
+      name: quick-postgres
+      path: /
+      port: 5432
+      query: sslmode=disable
+      scheme: postgresql
+  secretTransforms:
+    - renameKey:
+        from: POSTGRES_USER
+        to: username
+    - renameKey:
+        from: POSTGRES_PASSWORD
+        to: password
+  version: "13.2"

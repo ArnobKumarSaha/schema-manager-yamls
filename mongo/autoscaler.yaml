@@ -1,0 +1,79 @@
+apiVersion: autoscaling.kubedb.com/v1alpha1
+kind: MongoDBAutoscaler
+metadata:
+  name: mg-as
+  namespace: demo
+spec:
+  databaseRef:
+    name: mg-standalone
+  compute:
+    standalone:
+      trigger: "On"
+      podLifeTimeThreshold: 24h
+      minAllowed:
+        cpu: 250m
+        memory: 350Mi
+      maxAllowed:
+        cpu: 1
+        memory: 1Gi
+      controlledResources: ["cpu", "memory"]
+      containerControlledValues: "RequestsAndLimits"
+      resourceDiffPercentage: 10
+
+    replicaSet:
+      trigger: "On"
+      podLifeTimeThreshold: 24h
+      minAllowed:
+        cpu: 200m
+        memory: 300Mi
+      maxAllowed:
+        cpu: 1
+        memory: 1Gi
+      controlledResources: ["cpu", "memory"]
+      containerControlledValues: "RequestsAndLimits"
+      resourceDiffPercentage: 10
+
+    shard:
+      trigger: "On"
+      podLifeTimeThreshold: 24h
+      minAllowed:
+        cpu: 250m
+        memory: 350Mi
+      maxAllowed:
+        cpu: 1
+        memory: 1Gi
+      controlledResources: ["cpu", "memory"]
+      containerControlledValues: "RequestsAndLimits"
+      resourceDiffPercentage: 10
+    configServer:
+      trigger: "On"
+      podLifeTimeThreshold: 24h
+      minAllowed:
+        cpu: 250m
+        memory: 350Mi
+      maxAllowed:
+        cpu: 1
+        memory: 1Gi
+      controlledResources: ["cpu", "memory"]
+      containerControlledValues: "RequestsAndLimits"
+      resourceDiffPercentage: 10
+    mongos:
+      trigger: "On"
+      podLifeTimeThreshold: 24h
+      minAllowed:
+        cpu: 250m
+        memory: 350Mi
+      maxAllowed:
+        cpu: 1
+        memory: 1Gi
+      controlledResources: ["cpu", "memory"]
+      containerControlledValues: "RequestsAndLimits"
+      resourceDiffPercentage: 10
+    
+
+    
+  storage:
+    standalone:
+      trigger: "On"
+      usageThreshold: 60
+      scalingThreshold: 50
