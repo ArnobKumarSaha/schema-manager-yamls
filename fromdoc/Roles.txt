@@ -1,6 +1,6 @@
-roles::
+MongoDb roles::
 
-common roles on all dbs =>
+common roles on all dbs (newly created dbs & admin both) =>
 dbOwner 
 userAdmin 
 dbAdmin 
@@ -9,15 +9,15 @@ enableSharding
 readWrite 
 
 special in admin db =>
-__system 
+backup 
 restore 
 root 
 __queryableBackup 
+__system 
 clusterMonitor 
 clusterManager 
-hostManager 
-backup 
 clusterAdmin 
+hostManager 
 readAnyDatabase 
 readWriteAnyDatabase 
 dbAdminAnyDatabase 
