@@ -1,0 +1,41 @@
+apiVersion: schema.kubedb.com/v1alpha1
+kind: MongoDBDatabase
+metadata:
+  name: sample
+  namespace: dev
+spec:
+  databaseRef:
+    name: mongodb # restored-mgo
+    namespace: db
+  vaultRef:
+    name: "vault"
+    namespace: "demo"
+  databaseSchema:
+    name: "mydb"
+  subjects:
+    - name: "sa_name"
+      kind:
+        apiVersion: "v1"
+        kind: "ServiceAccount"
+      namespace: "dev"
+  init:
+    initialized: false
+    #waitForInitialRestore: true
+    script:
+      scriptPath: "/etc/config"
+      volumeSource:
+        configMap:
+          name: "test-cm"
+    podTemplate:
+      spec:
+        env:
+          - name: "HAVE_A_TRY"
+            value: "whoo! It works"
+  restore:
+    repository:
+      name: local-repo
+      namespace: db
+    snapshot:  latest
+  deletionPolicy: "Delete"
+
+# when restore , make secret-repository,restore-mongo first
