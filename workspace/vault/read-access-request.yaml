@@ -2,7 +2,7 @@ apiVersion: engine.kubevault.com/v1alpha1
 kind: SecretAccessRequest
 metadata:
   name: read-access-req
-  namespace: dev
+  namespace: try
 spec:
   roleRef:
     kind: MongoDBRole

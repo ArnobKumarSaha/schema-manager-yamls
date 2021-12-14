@@ -2,9 +2,11 @@ apiVersion: engine.kubevault.com/v1alpha1
 kind: MongoDBRole
 metadata:
   name: reader-role
-  namespace: dev
+  namespace: try
 spec:
   secretEngineRef:
     name: mongo-secret-engine
   creationStatements:
+    - '{ "db": "mydb", "roles": [{"role": "read"}] }'
+  revocationStatements:
     - '{ "db": "mydb", "roles": [{"role": "read"}] }'
