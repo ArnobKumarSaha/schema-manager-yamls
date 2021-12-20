@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: ca-issuer
-  namespace: demo
+  namespace: try
 spec:
   ca:
-    secretName: ca-key-pair
+    secretName: mongo-ca

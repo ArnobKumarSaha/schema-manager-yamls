@@ -2,7 +2,7 @@ apiVersion: kubevault.com/v1alpha1
 kind: VaultServer
 metadata:
   name: vault
-  namespace: tls-demo
+  namespace: try
 spec:
   tls:
     certificates:

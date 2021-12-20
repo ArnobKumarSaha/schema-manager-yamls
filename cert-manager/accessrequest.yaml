@@ -1,0 +1,13 @@
+apiVersion: engine.kubevault.com/v1alpha1
+kind: SecretAccessRequest
+metadata:
+  name: admin-access-req
+  namespace: try
+spec:
+  roleRef:
+    kind: MongoDBRole
+    name: admin-role
+  subjects:
+    - kind: ServiceAccount
+      name: readonly-user
+      namespace: user-2

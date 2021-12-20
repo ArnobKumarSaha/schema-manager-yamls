@@ -2,15 +2,16 @@ apiVersion: kubedb.com/v1alpha2
 kind: MongoDB
 metadata:
   name: mgo-tls
-  namespace: tls-db
+  namespace: try
 spec:
   version: "4.4.6"
+  # sslMode, tls & clusterAuthMode are extra fields for tls configuration
   sslMode: requireSSL
   tls:
     issuerRef:
       apiGroup: "cert-manager.io"
       kind: Issuer
-      name: mongo-ca-issuer
+      name: ca-issuer
   clusterAuthMode: x509
   replicas: 3
   podTemplate:
@@ -28,4 +29,4 @@ spec:
       - ReadWriteOnce
     resources:
       requests:
-        storage: 1Gi
+        storage: 100Mi
