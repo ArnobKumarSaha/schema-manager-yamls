@@ -1,0 +1,516 @@
+I0104 05:57:42.094883       1 log.go:184] FLAG: --add-dir-header="false"
+I0104 05:57:42.094970       1 log.go:184] FLAG: --alsologtostderr="false"
+I0104 05:57:42.094984       1 log.go:184] FLAG: --backupsession="mongo-backup-1641275762"
+I0104 05:57:42.094990       1 log.go:184] FLAG: --bucket="backup-mongo"
+I0104 05:57:42.094996       1 log.go:184] FLAG: --bypass-validating-webhook-xray="false"
+I0104 05:57:42.095001       1 log.go:184] FLAG: --enable-cache="true"
+I0104 05:57:42.095008       1 log.go:184] FLAG: --endpoint="https://us-southeast-1.linodeobjects.com"
+I0104 05:57:42.095014       1 log.go:184] FLAG: --help="false"
+I0104 05:57:42.095020       1 log.go:184] FLAG: --invoker-kind="BackupConfiguration"
+I0104 05:57:42.095025       1 log.go:184] FLAG: --invoker-name="mongo-backup"
+I0104 05:57:42.095032       1 log.go:184] FLAG: --kubeconfig=""
+I0104 05:57:42.095038       1 log.go:184] FLAG: --log-backtrace-at=":0"
+I0104 05:57:42.095043       1 log.go:184] FLAG: --log-dir=""
+I0104 05:57:42.095049       1 log.go:184] FLAG: --log-file=""
+I0104 05:57:42.095057       1 log.go:184] FLAG: --log-file-max-size="1800"
+I0104 05:57:42.095102       1 log.go:184] FLAG: --log-flush-frequency="5s"
+I0104 05:57:42.095127       1 log.go:184] FLAG: --logtostderr="true"
+I0104 05:57:42.095144       1 log.go:184] FLAG: --master=""
+I0104 05:57:42.095152       1 log.go:184] FLAG: --max-connections="0"
+I0104 05:57:42.095158       1 log.go:184] FLAG: --metrics-enabled="true"
+I0104 05:57:42.095172       1 log.go:184] FLAG: --metrics-labels="[]"
+I0104 05:57:42.095203       1 log.go:184] FLAG: --metrics-pushgateway-url="http://stash-stash-enterprise.kube-system.svc:56789"
+I0104 05:57:42.095226       1 log.go:184] FLAG: --namespace="db"
+I0104 05:57:42.095239       1 log.go:184] FLAG: --one-output="false"
+I0104 05:57:42.095246       1 log.go:184] FLAG: --output-dir="/tmp/output"
+I0104 05:57:42.095275       1 log.go:184] FLAG: --path="demo"
+I0104 05:57:42.095284       1 log.go:184] FLAG: --provider="s3"
+I0104 05:57:42.095291       1 log.go:184] FLAG: --region="us-southeast-1"
+I0104 05:57:42.095298       1 log.go:184] FLAG: --repository="local-repo"
+I0104 05:57:42.095323       1 log.go:184] FLAG: --scratch-dir="/tmp"
+I0104 05:57:42.095331       1 log.go:184] FLAG: --secret-dir="***REDACTED***"
+I0104 05:57:42.095338       1 log.go:184] FLAG: --service-name="stash-operator"
+I0104 05:57:42.095345       1 log.go:184] FLAG: --skip-headers="false"
+I0104 05:57:42.095376       1 log.go:184] FLAG: --skip-log-headers="false"
+I0104 05:57:42.095388       1 log.go:184] FLAG: --stderrthreshold="2"
+I0104 05:57:42.095395       1 log.go:184] FLAG: --target-kind="AppBinding"
+I0104 05:57:42.095401       1 log.go:184] FLAG: --target-name="mng-shrd"
+I0104 05:57:42.095408       1 log.go:184] FLAG: --use-kubeapiserver-fqdn-for-aks="true"
+I0104 05:57:42.095414       1 log.go:184] FLAG: --v="0"
+I0104 05:57:42.095420       1 log.go:184] FLAG: --vmodule=""
+W0104 05:57:42.096224       1 client_config.go:615] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0104 05:57:42.097136       1 status.go:68] Reading backup output from file: /tmp/output/output.json
+I0104 05:57:42.120091       1 status.go:115] Updating post backup status.......
+I0104 05:57:42.123180       1 status.go:357] Waiting for all other targets/hosts to complete their backup.....
+I0104 05:57:42.126544       1 status.go:265] Applying retention policy.....
+I0104 05:57:42.126729       1 commands.go:178] Cleaning old snapshots according to retention policy
+[golang-sh]$ /bin/restic forget --quiet --json --keep-last 5 --prune --cache-dir /tmp/restic-cache
+I0104 05:56:02.968971       1 log.go:184] FLAG: --add-dir-header="false"
+I0104 05:56:02.969060       1 log.go:184] FLAG: --alsologtostderr="false"
+I0104 05:56:02.969065       1 log.go:184] FLAG: --appbinding="mng-shrd"
+I0104 05:56:02.969069       1 log.go:184] FLAG: --backupsession="mongo-backup-1641275762"
+I0104 05:56:02.969073       1 log.go:184] FLAG: --bucket="backup-mongo"
+I0104 05:56:02.969077       1 log.go:184] FLAG: --enable-cache="true"
+I0104 05:56:02.969080       1 log.go:184] FLAG: --endpoint="https://us-southeast-1.linodeobjects.com"
+I0104 05:56:02.969083       1 log.go:184] FLAG: --help="false"
+I0104 05:56:02.969089       1 log.go:184] FLAG: --hostname="host-0"
+I0104 05:56:02.969094       1 log.go:184] FLAG: --kubeconfig=""
+I0104 05:56:02.969100       1 log.go:184] FLAG: --license-apiservice="v1beta1.admission.stash.appscode.com"
+I0104 05:56:02.969106       1 log.go:184] FLAG: --log-backtrace-at=":0"
+I0104 05:56:02.969111       1 log.go:184] FLAG: --log-dir=""
+I0104 05:56:02.969116       1 log.go:184] FLAG: --log-file=""
+I0104 05:56:02.969121       1 log.go:184] FLAG: --log-file-max-size="1800"
+I0104 05:56:02.969164       1 log.go:184] FLAG: --log-flush-frequency="5s"
+I0104 05:56:02.969195       1 log.go:184] FLAG: --logtostderr="true"
+I0104 05:56:02.969206       1 log.go:184] FLAG: --master=""
+I0104 05:56:02.969213       1 log.go:184] FLAG: --max-concurrency="3"
+I0104 05:56:02.969219       1 log.go:184] FLAG: --max-connections="0"
+I0104 05:56:02.969225       1 log.go:184] FLAG: --mongo-args=""
+I0104 05:56:02.969233       1 log.go:184] FLAG: --namespace="db"
+I0104 05:56:02.969239       1 log.go:184] FLAG: --one-output="false"
+I0104 05:56:02.969271       1 log.go:184] FLAG: --output-dir="/tmp/output"
+I0104 05:56:02.969279       1 log.go:184] FLAG: --path="demo"
+I0104 05:56:02.969285       1 log.go:184] FLAG: --provider="s3"
+I0104 05:56:02.969292       1 log.go:184] FLAG: --region="us-southeast-1"
+I0104 05:56:02.969298       1 log.go:184] FLAG: --retention-dry-run="false"
+I0104 05:56:02.969305       1 log.go:184] FLAG: --retention-keep-daily="0"
+I0104 05:56:02.969324       1 log.go:184] FLAG: --retention-keep-hourly="0"
+I0104 05:56:02.969331       1 log.go:184] FLAG: --retention-keep-last="5"
+I0104 05:56:02.969337       1 log.go:184] FLAG: --retention-keep-monthly="0"
+I0104 05:56:02.969351       1 log.go:184] FLAG: --retention-keep-tags="[]"
+I0104 05:56:02.969358       1 log.go:184] FLAG: --retention-keep-weekly="0"
+I0104 05:56:02.969364       1 log.go:184] FLAG: --retention-keep-yearly="0"
+I0104 05:56:02.969371       1 log.go:184] FLAG: --retention-prune="true"
+I0104 05:56:02.969377       1 log.go:184] FLAG: --scratch-dir="/tmp"
+I0104 05:56:02.969384       1 log.go:184] FLAG: --secret-dir="***REDACTED***"
+I0104 05:56:02.969444       1 log.go:184] FLAG: --skip-headers="false"
+I0104 05:56:02.969452       1 log.go:184] FLAG: --skip-log-headers="false"
+I0104 05:56:02.969459       1 log.go:184] FLAG: --stderrthreshold="2"
+I0104 05:56:02.969466       1 log.go:184] FLAG: --v="0"
+I0104 05:56:02.969473       1 log.go:184] FLAG: --vmodule=""
+I0104 05:56:02.969488       1 log.go:184] FLAG: --wait-timeout="300"
+W0104 05:56:02.969786       1 client_config.go:615] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0104 05:56:02.997361       1 commands.go:100] Checking whether the backend repository exist or not....
+[golang-sh]$ /bin/restic snapshots --json --cache-dir /tmp/restic-cache
+I0104 05:56:12.229738       1 commands.go:412] sh-output: [{"time":"2021-12-13T05:01:24.759446245Z","parent":"ff1cf594f43faaea7bd9e55078f466ee268d7cdaa704c786c40705ce57a241fe","tree":"83bba5094571232f874de7a303d917dc0531074692d4c5b52d743b105b1a28aa","paths":["/dump"],"hostname":"confighost","username":"root","id":"40c07f5749982e36d6342fac795b42e28cad99846269174480c7fa80645aa848","short_id":"40c07f57"},{"time":"2021-12-13T05:01:24.796467114Z","parent":"a787975fac58098494379426e9c1c2e368a9ab570f793ed154ff18ce52b1adb2","tree":"9497fa4ac2e509cc9a685c5d959e795ad02b17023b6494884f279d5320a2e0a9","paths":["/dump"],"hostname":"host-0","username":"root","id":"5ac83287c09b2d9e051b1bc298d31a03b26e170ebbeb6f2701a9414a4ba28236","short_id":"5ac83287"},{"time":"2021-12-13T05:01:24.923441505Z","parent":"2835fe5326e764d5dd9bbc1f540972a1aa999cf5dd9157538248c0084819df63","tree":"b3b50790d937bbca78085bbda6a1a530de63d84cfa958b3fe3f9fd49068e830e","paths":["/dump"],"hostname":"host-1","username":"root","id":"be3099c04c039410e2b0e2030e8054fab97fee29c39bedef6d7434044e3611d8","short_id":"be3099c0"},{"time":"2021-12-13T05:03:24.56675457Z","parent":"5ac83287c09b2d9e051b1bc298d31a03b26e170ebbeb6f2701a9414a4ba28236","tree":"1c3952ea1891b73bb1162f4cc45daf945a876ec8e800954269b61e8ac8df5a95","paths":["/dump"],"hostname":"host-0","username":"root","id":"a43526d9e7625cfb5aba3f7208182e330a1caa26ed9f0a3495a5c3e2fa4a5497","short_id":"a43526d9"},{"time":"2021-12-13T05:03:24.581119023Z","parent":"40c07f5749982e36d6342fac795b42e28cad99846269174480c7fa80645aa848","tree":"373f131a5aaf5385d8f847f4dbca6f17c253febcb5d27845b137dc680f0878b0","paths":["/dump"],"hostname":"confighost","username":"root","id":"16cffbc2532268ffc82d1d3d38e5598bd92f9a7cd09088617ccf7b2128c448f4","short_id":"16cffbc2"},{"time":"2021-12-13T05:03:24.593881175Z","parent":"be3099c04c039410e2b0e2030e8054fab97fee29c39bedef6d7434044e3611d8","tree":"f2264156430f50d0f54702740c48f75a3d3d1bf756e688c303b5e85f14dedb5f","paths":["/dump"],"hostname":"host-1","username":"root","id":"e4cfa5c45967c71b76e0415aa64852d3cbfb8ccf892c246fb0166f0f1b4b6335","short_id":"e4cfa5c4"},{"time":"2021-12-13T05:05:24.490385357Z","parent":"e4cfa5c45967c71b76e0415aa64852d3cbfb8ccf892c246fb0166f0f1b4b6335","tree":"05ba934f8ec04f25e3c7f7c8ad04d4e2d4287d8a644dc3222e6d1af7208b70ca","paths":["/dump"],"hostname":"host-1","username":"root","id":"9299335ef4df6cf9e9eaffcdb1ad237c7e40e70ed06ef44f0c9fe9d0533af39a","short_id":"9299335e"},{"time":"2021-12-13T05:05:24.490598283Z","parent":"a43526d9e7625cfb5aba3f7208182e330a1caa26ed9f0a3495a5c3e2fa4a5497","tree":"038b7660382faf4b675dfb61dfe93b2ed7d41a0dced2605fe1ff93a7d18a5a84","paths":["/dump"],"hostname":"host-0","username":"root","id":"e3ed2f9e3bdd754ef3f26eae62d79bf61d9abc80a5de65404eea30e28d5ae8ff","short_id":"e3ed2f9e"},{"time":"2021-12-13T05:05:24.491086049Z","parent":"16cffbc2532268ffc82d1d3d38e5598bd92f9a7cd09088617ccf7b2128c448f4","tree":"ec5b55ccadd4073db9892fce9b3e3d7163f3c4892207d579d5fa6fd30dc17615","paths":["/dump"],"hostname":"confighost","username":"root","id":"e97f0b4e5e438801ca89497d61992e5b04fa381176f647092b6e6f8ea2fdecbf","short_id":"e97f0b4e"},{"time":"2021-12-13T05:07:23.682785552Z","parent":"9299335ef4df6cf9e9eaffcdb1ad237c7e40e70ed06ef44f0c9fe9d0533af39a","tree":"447e928650208519de9ee09cd5638ae9c1cd89f9ff05b2b884cc1c77e68b173b","paths":["/dump"],"hostname":"host-1","username":"root","id":"a3d42fbae1d093b5b93f95fd1496ecfbac8a6994d5c1a61b426354d4707c32cf","short_id":"a3d42fba"},{"time":"2021-12-13T05:07:23.690903066Z","parent":"e3ed2f9e3bdd754ef3f26eae62d79bf61d9abc80a5de65404eea30e28d5ae8ff","tree":"18b58dd07f8655665bbb1ee95f15b7be166e85bbf371dbe40e5f77e3ae5bf452","paths":["/dump"],"hostname":"host-0","username":"root","id":"02915f39e0dfb09405f6c957a6deeb858379dba70a92ddcaaf4cb24515fff3bf","short_id":"02915f39"},{"time":"2021-12-13T05:07:23.695970659Z","parent":"e97f0b4e5e438801ca89497d61992e5b04fa381176f647092b6e6f8ea2fdecbf","tree":"c4a69b2112b4ad3256766e56d1dd16e1369e2847034514f066ebca0c7c9613d9","paths":["/dump"],"hostname":"confighost","username":"root","id":"7766e390fca3d9021f8f7083b1c1b0dcacf3f0631927547fcc440e21b9990bdb","short_id":"7766e390"},{"time":"2021-12-13T05:09:24.267636662Z","parent":"a3d42fbae1d093b5b93f95fd1496ecfbac8a6994d5c1a61b426354d4707c32cf","tree":"82c6c6b7306ed099275cb1ca565542d1e15f27d462f80d966f5ead6e0b6b553d","paths":["/dump"],"hostname":"host-1","username":"root","id":"1cebf594b51bd526d29a6dbc88b5d93de03dfdf89f7c61680b037d2c6cecffcd","short_id":"1cebf594"},{"time":"2021-12-13T05:09:24.269963861Z","parent":"7766e390fca3d9021f8f7083b1c1b0dcacf3f0631927547fcc440e21b9990bdb","tree":"baae9a4a0e473a3b2f6f05933f8619370e24c6fe5ff86818e5e58b5e500b6841","paths":["/dump"],"hostname":"confighost","username":"root","id":"c9340f3a776e14b6513ca0a86a71f0a3f3530b5a958d048119fd65fac8c85c09","short_id":"c9340f3a"},{"time":"2021-12-13T05:09:24.273612959Z","parent":"02915f39e0dfb09405f6c957a6deeb858379dba70a92ddcaaf4cb24515fff3bf","tree":"31c9e61b60480abbf27a466255ea4cbec93fda86ca119f5df6721a94d7d102d8","paths":["/dump"],"hostname":"host-0","username":"root","id":"622fb1373217a5eccf04e0bf8875483c2ad34dc4b9a7c2b1f44ea9392384b631","short_id":"622fb137"},{"time":"2022-01-04T05:34:16.792161379Z","parent":"c9340f3a776e14b6513ca0a86a71f0a3f3530b5a958d048119fd65fac8c85c09","tree":"d8281441a65e5d7a3a514c86c3db11d5b4d0d30d3da93b63d00dedc49035d833","paths":["/dump"],"hostname":"confighost","username":"root","id":"0506413acd13562d20051ea830021bc1847551c6def6f86f75694d8bedd2d330","short_id":"0506413a"},{"time":"2022-01-04T05:34:16.812057646Z","parent":"622fb1373217a5eccf04e0bf8875483c2ad34dc4b9a7c2b1f44ea9392384b631","tree":"cafb7e04cb8a3cae1257ac6369d405fe784597bf854418d3760a2f80c55f8f13","paths":["/dump"],"hostname":"host-0","username":"root","id":"296e05578eae6b02d74a2dc5fdbe00a648bf55a492358d4c33f1c2104ca08d25","short_id":"296e0557"},{"time":"2022-01-04T05:36:16.792109103Z","parent":"1cebf594b51bd526d29a6dbc88b5d93de03dfdf89f7c61680b037d2c6cecffcd","tree":"6f1b42ca372c57186f67e3153d9d03e3a715d2c6ebfd7599fcce29556b59ead2","paths":["/dump"],"hostname":"host-1","username":"root","id":"33af0fa2f2a42fa661bad074a46318209574075fa21749447d2282003ec7f843","short_id":"33af0fa2"},{"time":"2022-01-04T05:36:16.816484312Z","parent":"296e05578eae6b02d74a2dc5fdbe00a648bf55a492358d4c33f1c2104ca08d25","tree":"c9006167def62dbec5f55e1338b9aebf156f1590d7e47ba108f1ad6d9bb53a05","paths":["/dump"],"hostname":"host-0","username":"root","id":"6f3a397151a6819b85d19d1372ee4e6400d86da4358655b02978660559bf6e0c","short_id":"6f3a3971"},{"time":"2022-01-04T05:36:16.823203785Z","parent":"0506413acd13562d20051ea830021bc1847551c6def6f86f75694d8bedd2d330","tree":"4f8e2a1e65f533827e8ec1513de995652e3af37cd88400850694fc16a13f38c9","paths":["/dump"],"hostname":"confighost","username":"root","id":"4420020f302b2abae68c12f028b85698c98f9cd85c3eaf19850d786727b1ee0e","short_id":"4420020f"},{"time":"2022-01-04T05:37:16.812960835Z","parent":"4420020f302b2abae68c12f028b85698c98f9cd85c3eaf19850d786727b1ee0e","tree":"29a2a15e4871da8eb8ed1aea1e0c438c62f89230b50e31c3dc15528254a9595d","paths":["/dump"],"hostname":"confighost","username":"root","id":"5ee511874d90d95663617dd040a336c60207724c8039ecfb5b49938867a4b562","short_id":"5ee51187"},{"time":"2022-01-04T05:37:16.821626062Z","parent":"6f3a397151a6819b85d19d1372ee4e6400d86da4358655b02978660559bf6e0c","tree":"b32b3771b722e6fe8bebe815d571fc3eb79f0af3f0bdf0046ca56303a4db135d","paths":["/dump"],"hostname":"host-0","username":"root","id":"ef9c1643373971c681ac0ecf445f18a92401c659988f6c9a34d47e56c083c213","short_id":"ef9c1643"},{"time":"2022-01-04T05:37:16.835222792Z","parent":"33af0fa2f2a42fa661bad074a46318209574075fa21749447d2282003ec7f843","tree":"fc40eef1b19408f4202f7275a052b73fd9c4f61f5679abb1c8665b6163049aba","paths":["/dump"],"hostname":"host-1","username":"root","id":"85ddf7fa84fb590594f154ba795dcf7a4ec405df2aabebe175d8d41e82666b8b","short_id":"85ddf7fa"},{"time":"2022-01-04T05:38:16.247409316Z","parent":"5ee511874d90d95663617dd040a336c60207724c8039ecfb5b49938867a4b562","tree":"b3b11dbf1a06914a401168e3b0df995efc52bef32d9fc242727d45be2f0f8603","paths":["/dump"],"hostname":"confighost","username":"root","id":"17e13f8fae216e56cddeb7870126c737b7d87450180d9f67137b00eac217ea11","short_id":"17e13f8f"},{"time":"2022-01-04T05:38:16.260540055Z","parent":"ef9c1643373971c681ac0ecf445f18a92401c659988f6c9a34d47e56c083c213","tree":"2463052cf728795d0b8608911fe9abfdf2897489a5f2e0d536b99d0fa7306004","paths":["/dump"],"hostname":"host-0","username":"root","id":"1fde260bce467f2e7285a11d855fcba389b9dca6f65a6b4032082679b81b642f","short_id":"1fde260b"},{"time":"2022-01-04T05:38:16.268911514Z","parent":"85ddf7fa84fb590594f154ba795dcf7a4ec405df2aabebe175d8d41e82666b8b","tree":"9867b9337a6df19418673c95e6528fba266f2d2f03e381dd4542112587f8be59","paths":["/dump"],"hostname":"host-1","username":"root","id":"20fd84836d7e002a7cf3a8ade2948e179c746d01d93ed1fcf76d33c835aca9e0","short_id":"20fd8483"},{"time":"2022-01-04T05:40:18.081420781Z","parent":"20fd84836d7e002a7cf3a8ade2948e179c746d01d93ed1fcf76d33c835aca9e0","tree":"be2368493b29ff240299dde1bed6ff6b71950a90c87279d713f0ff5a84ca958a","paths":["/dump"],"hostname":"host-1","username":"root","id":"368362cfec2233c38e0efe4e38090dae783588724330277466120a4a02186d75","short_id":"368362cf"},{"time":"2022-01-04T05:40:18.089262941Z","parent":"1fde260bce467f2e7285a11d855fcba389b9dca6f65a6b4032082679b81b642f","tree":"00aa3f1feee917a3caa926fd262989fcbd77ece158a25fb4643eb96148d59d8f","paths":["/dump"],"hostname":"host-0","username":"root","id":"37e7f7eae8f68de458889a4a2a5c340cdb946c04daed00c035bd807aedd7f12c","short_id":"37e7f7ea"},{"time":"2022-01-04T05:40:18.102646228Z","parent":"17e13f8fae216e56cddeb7870126c737b7d87450180d9f67137b00eac217ea11","tree":"3e9391faf6e4a8151ef8845a2d7c13933b1279b5d2535e7a6cae7029861154d3","paths":["/dump"],"hostname":"confighost","username":"root","id":"7fc4da6596d3b168d74512b1cdd6f2ff20c4f03a3de7cc98d20db3fce87e4b48","short_id":"7fc4da65"},{"time":"2022-01-04T05:42:12.800029167Z","parent":"368362cfec2233c38e0efe4e38090dae783588724330277466120a4a02186d75","tree":"a489fc42961bbc3daa04fa2f96abc7815d952aafb0368f0c12849f6200853d30","paths":["/dump"],"hostname":"host-1","username":"root","id":"18d8a8e99d55103fffeecbff9aea9bb6883561b6c2b1b3f53b73acbf2c690e13","short_id":"18d8a8e9"},{"time":"2022-01-04T05:42:12.804177338Z","parent":"7fc4da6596d3b168d74512b1cdd6f2ff20c4f03a3de7cc98d20db3fce87e4b48","tree":"dcdc33c0acc06010640fc0ad97236c2756f448fb6f271142b12a0dcb811eee3e","paths":["/dump"],"hostname":"confighost","username":"root","id":"4fc1de9ab2afd7fad0f29f031c1f2597aaa76ec77c4279e4e8017e1765feb025","short_id":"4fc1de9a"},{"time":"2022-01-04T05:42:12.815443216Z","parent":"37e7f7eae8f68de458889a4a2a5c340cdb946c04daed00c035bd807aedd7f12c","tree":"6a422f9e06aaea60c67abd4910d066b6087fa0046b717347eed5aea6d48ab3d8","paths":["/dump"],"hostname":"host-0","username":"root","id":"949cf63d812a0dee2b1a62b64fd0d114048969051e135b79950be93cfb666b20","short_id":"949cf63d"},{"time":"2022-01-04T05:44:13.043042485Z","parent":"18d8a8e99d55103fffeecbff9aea9bb6883561b6c2b1b3f53b73acbf2c690e13","tree":"d7722e4b5335f0faaed3c26dc14bab988d5c956d21d86da2c31b7ec5f32dfa6b","paths":["/dump"],"hostname":"host-1","username":"root","id":"5a02143b794137797395f9e90d795bcf5870f1e10413075ffbb4a8deccd379d5","short_id":"5a02143b"},{"time":"2022-01-04T05:44:13.055014814Z","parent":"949cf63d812a0dee2b1a62b64fd0d114048969051e135b79950be93cfb666b20","tree":"7c9fd20196aa5c3791844145409c2b149ccd72b17ff8fbd13f1249bddde46efe","paths":["/dump"],"hostname":"host-0","username":"root","id":"d11c1fc00732a36f6cdeb221353fea4fb78ebf2b518ed70a0ba93f34c5e1f25e","short_id":"d11c1fc0"},{"time":"2022-01-04T05:44:13.066949231Z","parent":"4fc1de9ab2afd7fad0f29f031c1f2597aaa76ec77c4279e4e8017e1765feb025","tree":"848e881755a5b67faca0cabdbd932901c734097b1a57623d5860808700b59ceb","paths":["/dump"],"hostname":"confighost","username":"root","id":"b80b8e2c0a7c9bdd36e626f7343b9e186d61bd7c1494c3658c1e91d038343bc5","short_id":"b80b8e2c"},{"time":"2022-01-04T05:48:13.567226557Z","parent":"5a02143b794137797395f9e90d795bcf5870f1e10413075ffbb4a8deccd379d5","tree":"018a5bbef8c706473e45fb4875886568621aca21d804ee97e8fd9e402b965c15","paths":["/dump"],"hostname":"host-1","username":"root","id":"b7c670f34f147f3ea8199a7c6471d109a84734b8c2bca927295c61e5a03552f2","short_id":"b7c670f3"},{"time":"2022-01-04T05:48:13.578351885Z","parent":"d11c1fc00732a36f6cdeb221353fea4fb78ebf2b518ed70a0ba93f34c5e1f25e","tree":"ac00a2852fd225af715b1ded2c1bf6a3e0db5b858e882cf72f039e7c1866862c","paths":["/dump"],"hostname":"host-0","username":"root","id":"c95d43cd5681b3cca3fed164dc12e4fabc6f503fdbe601b593b027e296eeb872","short_id":"c95d43cd"},{"time":"2022-01-04T05:48:13.584630812Z","parent":"b80b8e2c0a7c9bdd36e626f7343b9e186d61bd7c1494c3658c1e91d038343bc5","tree":"49311acaffa1d4b624924871487a1cdd84fdaeb8248c21f080fcb0ef6411ef45","paths":["/dump"],"hostname":"confighost","username":"root","id":"c628418643927d3e860028faed83fa6dd527d055e1e0703e8ef727b6b3870e0d","short_id":"c6284186"},{"time":"2022-01-04T05:50:13.413590282Z","parent":"c95d43cd5681b3cca3fed164dc12e4fabc6f503fdbe601b593b027e296eeb872","tree":"cc6cfa6de3d99bf421f6ca7d45dc067156769cdfd0a112fa99b116de4c1f49dc","paths":["/dump"],"hostname":"host-0","username":"root","id":"df8026aac9228c5caced8f558ea82faab708f1272db2f87a5f5a274844893135","short_id":"df8026aa"},{"time":"2022-01-04T05:50:13.423754869Z","parent":"c628418643927d3e860028faed83fa6dd527d055e1e0703e8ef727b6b3870e0d","tree":"74a7bb955ed9db84840d4c1c8bfd3193a02448c8316f4878c4a12d4d42d3d2bc","paths":["/dump"],"hostname":"confighost","username":"root","id":"b6402bdd92c1dc83c330f8ce928a84827b8ee67ef14e5a3a8a2037d4e37b18a3","short_id":"b6402bdd"},{"time":"2022-01-04T05:50:13.445188304Z","parent":"b7c670f34f147f3ea8199a7c6471d109a84734b8c2bca927295c61e5a03552f2","tree":"1d7cc152ef7ccb93ca003b2c38f2e4388e541ce984b9327887c45a8255254311","paths":["/dump"],"hostname":"host-1","username":"root","id":"96e9a996521b3903798ce8225e65827def9779b3d2fd3da293db28c3d64a48e6","short_id":"96e9a996"},{"time":"2022-01-04T05:52:14.091065061Z","parent":"96e9a996521b3903798ce8225e65827def9779b3d2fd3da293db28c3d64a48e6","tree":"4fb5aab088e0c6fe1155f48bafad0517727c886dfb312884c70fa8a9ac39ad0e","paths":["/dump"],"hostname":"host-1","username":"root","id":"c4805bb616cb9f952b9ac362ca5525d26315bd1db6c6aa9a5a92e2843aaa2f8c","short_id":"c4805bb6"},{"time":"2022-01-04T05:52:14.104201946Z","parent":"b6402bdd92c1dc83c330f8ce928a84827b8ee67ef14e5a3a8a2037d4e37b18a3","tree":"ef3db352fdbb3fa0f76d500cdd64b4dc0ae342dca91ad60f6058adafaf339372","paths":["/dump"],"hostname":"confighost","username":"root","id":"a6dd9d4aec8f913d6952d7339116bed39b6f2da9242e8641e033f533ca88c7f4","short_id":"a6dd9d4a"},{"time":"2022-01-04T05:52:14.124264681Z","parent":"df8026aac9228c5caced8f558ea82faab708f1272db2f87a5f5a274844893135","tree":"57f1b54e85291e0fc59dfad33ccabded4d3fbece123d909bbac79957ae8b8dbb","paths":["/dump"],"hostname":"host-0","username":"root","id":"b04eb6050e93420bd8cb50c915408d8e5708ffa8f20b4ea4d15a1e45c8a58f51","short_id":"b04eb605"},{"time":"2022-01-04T05:54:14.011482193Z","parent":"b04eb6050e93420bd8cb50c915408d8e5708ffa8f20b4ea4d15a1e45c8a58f51","tree":"43fb7e3ad03669406cacbe2dcd0f4902ebf4e7feb27bfe5607997a7b43bba81e","paths":["/dump"],"hostname":"host-0","username":"root","id":"580ca85543d70592e2fea1a9db39048f39d4223daa351dfaa9ef2e2469575d43","short_id":"580ca855"},{"time":"2022-01-04T05:54:14.036527495Z","parent":"c4805bb616cb9f952b9ac362ca5525d26315bd1db6c6aa9a5a92e2843aaa2f8c","tree":"74bc928cfa0b79426680c1e0a5c456ae6c436f25650ed4fc98a760b145e5cfcb","paths":["/dump"],"hostname":"host-1","username":"root","id":"4a17a4c3c124d479369e845246fde2df602f53eba16d5f88cb6333e9a0b9f06f","short_id":"4a17a4c3"},{"time":"2022-01-04T05:54:14.043785815Z","parent":"a6dd9d4aec8f913d6952d7339116bed39b6f2da9242e8641e033f533ca88c7f4","tree":"e9003a3934d8b168579b1acf88b735ec4d0ae7cbe3053ef2acf3daecc14e9294","paths":["/dump"],"hostname":"confighost","username":"root","id":"cf23950c7552c19c8c9b3a5697e9d889d143516782ab6d9c2d7feff19101bea5","short_id":"cf23950c"}]
+
+I0104 05:56:12.243160       1 backup.go:101] Waiting for the backend repository.....
+I0104 05:56:12.261133       1 utils.go:68] Checking database connection
+I0104 05:56:12.273551       1 backup.go:520] finding primary and secondary instances of cnfRepSet/mng-shrd-configsvr-0.mng-shrd-configsvr-pods.db.svc:27017,mng-shrd-configsvr-1.mng-shrd-configsvr-pods.db.svc:27017,mng-shrd-configsvr-2.mng-shrd-configsvr-pods.db.svc:27017
+I0104 05:56:12.365038       1 backup.go:562] Disabling balancer of  mng-shrd
+I0104 05:56:12.536762       1 backup.go:617] Attempting to lock configserver cnfRepSet/mng-shrd-configsvr-0.mng-shrd-configsvr-pods.db.svc:27017,mng-shrd-configsvr-1.mng-shrd-configsvr-pods.db.svc:27017,mng-shrd-configsvr-2.mng-shrd-configsvr-pods.db.svc:27017
+I0104 05:56:12.712965       1 backup.go:674] Attempting to lock secondary member mng-shrd-configsvr-1.mng-shrd-configsvr-pods.db.svc.cluster.local:27017
+I0104 05:56:12.865626       1 backup.go:354] processing backupOptions for  mng-shrd-configsvr-1.mng-shrd-configsvr-pods.db.svc.cluster.local:27017
+I0104 05:56:12.865648       1 backup.go:520] finding primary and secondary instances of shard0/mng-shrd-shard0-0.mng-shrd-shard0-pods.db.svc:27017,mng-shrd-shard0-1.mng-shrd-shard0-pods.db.svc:27017,mng-shrd-shard0-2.mng-shrd-shard0-pods.db.svc:27017
+I0104 05:56:12.994617       1 backup.go:674] Attempting to lock secondary member mng-shrd-shard0-1.mng-shrd-shard0-pods.db.svc.cluster.local:27017
+I0104 05:56:13.184189       1 backup.go:354] processing backupOptions for  mng-shrd-shard0-1.mng-shrd-shard0-pods.db.svc.cluster.local:27017
+I0104 05:56:13.184232       1 backup.go:520] finding primary and secondary instances of shard1/mng-shrd-shard1-0.mng-shrd-shard1-pods.db.svc:27017,mng-shrd-shard1-1.mng-shrd-shard1-pods.db.svc:27017,mng-shrd-shard1-2.mng-shrd-shard1-pods.db.svc:27017
+I0104 05:56:13.269091       1 backup.go:674] Attempting to lock secondary member mng-shrd-shard1-1.mng-shrd-shard1-pods.db.svc.cluster.local:27017
+I0104 05:56:13.409869       1 backup.go:354] processing backupOptions for  mng-shrd-shard1-1.mng-shrd-shard1-pods.db.svc.cluster.local:27017
+I0104 05:56:13.409942       1 backup.go:487] processing backup.
+I0104 05:56:13.410184       1 commands.go:149] Backing up stdin data
+I0104 05:56:13.410192       1 commands.go:149] Backing up stdin data
+I0104 05:56:13.410383       1 commands.go:149] Backing up stdin data
+2022-01-04T05:56:13.469+0000	writing admin.system.users to archive on stdout
+2022-01-04T05:56:13.477+0000	writing admin.system.users to archive on stdout
+2022-01-04T05:56:13.478+0000	done dumping admin.system.users (1 document)
+2022-01-04T05:56:13.479+0000	writing admin.system.version to archive on stdout
+2022-01-04T05:56:13.481+0000	done dumping admin.system.users (1 document)
+2022-01-04T05:56:13.482+0000	writing admin.system.version to archive on stdout
+2022-01-04T05:56:13.481+0000	done dumping admin.system.version (4 documents)
+2022-01-04T05:56:13.483+0000	done dumping admin.system.version (5 documents)
+2022-01-04T05:56:13.484+0000	writing config.cache.chunks.config.system.sessions to archive on stdout
+2022-01-04T05:56:13.486+0000	writing admin.system.users to archive on stdout
+2022-01-04T05:56:13.486+0000	writing config.cache.chunks.config.system.sessions to archive on stdout
+2022-01-04T05:56:13.492+0000	writing config.cache.collections to archive on stdout
+2022-01-04T05:56:13.493+0000	writing config.cache.collections to archive on stdout
+2022-01-04T05:56:13.493+0000	writing config.cache.databases to archive on stdout
+2022-01-04T05:56:13.493+0000	done dumping admin.system.users (1 document)
+2022-01-04T05:56:13.495+0000	writing config.cache.databases to archive on stdout
+2022-01-04T05:56:13.494+0000	writing admin.system.version to archive on stdout
+2022-01-04T05:56:13.501+0000	writing config.migrationCoordinators to archive on stdout
+2022-01-04T05:56:13.502+0000	done dumping admin.system.version (2 documents)
+2022-01-04T05:56:13.503+0000	writing config.rangeDeletions to archive on stdout
+2022-01-04T05:56:13.513+0000	writing config.chunks to archive on stdout
+2022-01-04T05:56:13.515+0000	writing config.lockpings to archive on stdout
+2022-01-04T05:56:13.518+0000	done dumping config.migrationCoordinators (0 documents)
+2022-01-04T05:56:13.519+0000	writing config.rangeDeletions to archive on stdout
+2022-01-04T05:56:13.522+0000	writing config.changelog to archive on stdout
+2022-01-04T05:56:13.532+0000	done dumping config.cache.collections (1 document)
+2022-01-04T05:56:13.533+0000	done dumping config.cache.databases (2 documents)
+2022-01-04T05:56:13.537+0000	writing config.actionlog to archive on stdout
+2022-01-04T05:56:13.540+0000	done dumping config.lockpings (11 documents)
+2022-01-04T05:56:13.541+0000	writing config.locks to archive on stdout
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 552.330144ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 552.330144ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 720.254544ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 582.280027ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 468.857094ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 693.478123ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 1.080381816s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 890.117305ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 582.280027ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 468.857094ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 282.818509ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 492.389441ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 552.330144ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 720.254544ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 462.318748ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 447.727139ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 890.117305ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 901.025843ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 761.409471ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 424.227764ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 738.584161ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 582.280027ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 1.477844956s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 803.546856ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 990.739338ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 703.28564ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 693.478123ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 447.727139ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 400.45593ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 920.315446ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 890.117305ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 1.142114207s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 1.635001613s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 1.477844956s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 636.341646ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 738.584161ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 1.32137013s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 1.205320285s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 660.492892ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 1.338359384s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 671.590708ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 920.315446ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 1.351538765s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 1.635001613s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 1.989705391s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 1.212558276s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 1.713171311s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 1.779941781s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 2.216767434s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 2.179080774s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 880.91342ms: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 1.338359384s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 2.984558086s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 1.807980427s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 1.212558276s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 2.71014173s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 2.22916351s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 3.448806451s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 1.779941781s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 1.452720516s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 2.007570431s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 3.026422858s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 2.71014173s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 2.070709754s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 4.755863245s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 3.448806451s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 3.67875363s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 2.007570431s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 2.973082793s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 3.026422858s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 4.755863245s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 2.682806044s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 5.184006378s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 4.543793083s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 3.011308614s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 5.830976587s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 2.682806044s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 5.184006378s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 4.543793083s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 6.715255694s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 4.092384182s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 3.008851154s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 5.830976587s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 3.749385269s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 4.004869008s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 3.008851154s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 3.749385269s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 6.306154355s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 8.401962033s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 4.950254196s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 6.306154355s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 9.352915637s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 4.776550251s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 7.354397612s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 8.401962033s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 4.950254196s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 9.146728339s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 9.352915637s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 11.639721773s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 4.776550251s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 15.275143199s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 6.847383216s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 8.62753865s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 10.183428799s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 10.271074824s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 8.894083527s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 8.62753865s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 10.163325309s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 8.894083527s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 13.380282645s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 10.214177147s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 13.380282645s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 9.976149427s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 16.05103845s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/0af32706f8>, 0, 0) returned error, retrying after 17.744535921s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0a/0af32706f81312034116a657dd6b1381120a7ee409a434480dd9e59d2f10b689: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 13.206392341s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 9.976149427s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/3c62d9673d>, 0, 0) returned error, retrying after 17.744535921s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/3c/3c62d9673dc541407c88c66b7d5bbf5c72771abaa350c91d62489616860507a8: file exists
+Load(<index/563ed405d4>, 0, 0) returned error, retrying after 13.581705599s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/56/563ed405d4cdb149446e98a41e2916c8b993f4da648599c5d94cbc9787bf84ff: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 13.206392341s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+Load(<index/247c1ee5e3>, 0, 0) returned error, retrying after 14.484314132s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/24/247c1ee5e36a6ba02bcb307a07318bab1550b4f0de741441a4d116ff475a2b0c: file exists
+Load(<index/1c3a614a1b>, 0, 0) returned error, retrying after 14.484314132s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/1c/1c3a614a1bbddae30cc9d16bcc48e0d95a516ffb357fa3326ad376eaaca71ec3: file exists
+Load(<index/6c66ac56f1>, 0, 0) returned error, retrying after 26.244032286s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6c/6c66ac56f18bf1966935f60411fb7d41776eee67c98a0a1603f009b8d8b48dc2: file exists
+Load(<index/0ce584c79f>, 0, 0) returned error, retrying after 15.032910374s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/0c/0ce584c79f367162f6e3c6ad6e5c0ddb15c6ba0284103ee7ab9d2a315d6bb43d: file exists
+Load(<index/116aaff7c1>, 0, 0) returned error, retrying after 24.76915092s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/11/116aaff7c1747293a12db123789ee4c4d1c2e13e7b090720b93046a8748b73e3: file exists
+Load(<index/2eb85622f4>, 0, 0) returned error, retrying after 15.032910374s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/2e/2eb85622f47437cdcf2370889e6ce901a3625ac8e984664e787ce3cc8a65ffe7: file exists
+Load(<index/6d6a0de5f5>, 0, 0) returned error, retrying after 24.76915092s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/6d/6d6a0de5f54770c36f008ba7531de62c05b8327b55820d43b8229730dd086978: file exists
+Load(<index/46ffc8c570>, 0, 0) returned error, retrying after 16.565348898s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/46/46ffc8c5709270b666abe4dde26b0f8a0ec56493aaa0b433124dd4beecf01e55: file exists
+Load(<index/5f1a299a94>, 0, 0) returned error, retrying after 23.002952479s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/5f/5f1a299a949635008d73347b24564ad9d68ab5cf23f4750d65c69ed76d2ddfb4: file exists
+Load(<index/69b865d8bc>, 0, 0) returned error, retrying after 16.565348898s: open /tmp/restic-cache/e7af28e7dea8c0d985e4aac3360064006454d480a0c8c50e4159e893eb0c1a1c/index/69/69b865d8bc579a825c9619307a589e383333af769cff4c6fb196743cce312d27: file exists
+2022-01-04T05:57:30.589+0000	done dumping config.cache.chunks.config.system.sessions (1024 documents)
+2022-01-04T05:57:30.589+0000	done dumping config.rangeDeletions (0 documents)
+2022-01-04T05:57:30.590+0000	writing captured oplog to 
+2022-01-04T05:57:30.592+0000		dumped 1 oplog entry
+I0104 05:57:33.009524       1 commands.go:412] sh-output: {"message_type":"status","seconds_elapsed":73,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":0,"files_changed":1,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":199840,"total_files_processed":1,"total_bytes_processed":199555,"total_duration":76.229507792,"snapshot_id":"09c9cabb"}
+
+2022-01-04T05:57:35.505+0000	done dumping config.chunks (1024 documents)
+2022-01-04T05:57:35.506+0000	writing config.shards to archive on stdout
+2022-01-04T05:57:35.508+0000	done dumping config.changelog (3076 documents)
+2022-01-04T05:57:35.508+0000	done dumping config.actionlog (535 documents)
+2022-01-04T05:57:35.508+0000	writing config.settings to archive on stdout
+2022-01-04T05:57:35.508+0000	writing config.mongos to archive on stdout
+2022-01-04T05:57:35.508+0000	done dumping config.locks (2 documents)
+2022-01-04T05:57:35.510+0000	done dumping config.shards (2 documents)
+2022-01-04T05:57:35.511+0000	writing config.BackupControl to archive on stdout
+2022-01-04T05:57:35.512+0000	writing config.version to archive on stdout
+2022-01-04T05:57:35.526+0000	done dumping config.mongos (2 documents)
+2022-01-04T05:57:35.526+0000	done dumping config.settings (2 documents)
+2022-01-04T05:57:35.527+0000	writing config.collections to archive on stdout
+2022-01-04T05:57:35.531+0000	writing admin.kubedb to archive on stdout
+2022-01-04T05:57:35.541+0000	done dumping config.BackupControl (1 document)
+2022-01-04T05:57:35.541+0000	done dumping config.collections (1 document)
+2022-01-04T05:57:35.541+0000	writing config.migrations to archive on stdout
+2022-01-04T05:57:35.542+0000	done dumping admin.kubedb (1 document)
+2022-01-04T05:57:35.542+0000	writing config.tags to archive on stdout
+2022-01-04T05:57:35.544+0000	done dumping config.version (1 document)
+2022-01-04T05:57:35.549+0000	done dumping config.migrations (0 documents)
+2022-01-04T05:57:35.549+0000	done dumping config.tags (0 documents)
+2022-01-04T05:57:35.550+0000	writing captured oplog to 
+2022-01-04T05:57:35.555+0000		dumped 1 oplog entry
+2022-01-04T05:57:36.426+0000	done dumping config.cache.chunks.config.system.sessions (1024 documents)
+2022-01-04T05:57:36.426+0000	done dumping config.cache.databases (2 documents)
+2022-01-04T05:57:36.426+0000	done dumping config.cache.collections (1 document)
+2022-01-04T05:57:36.426+0000	done dumping config.rangeDeletions (0 documents)
+2022-01-04T05:57:36.427+0000	writing captured oplog to 
+2022-01-04T05:57:36.430+0000		dumped 1 oplog entry
+I0104 05:57:39.039756       1 commands.go:412] sh-output: {"message_type":"status","seconds_elapsed":78,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":0,"files_changed":1,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":200548,"total_files_processed":1,"total_bytes_processed":200266,"total_duration":80.665357147,"snapshot_id":"6f34b63b"}
+
+I0104 05:57:39.343472       1 commands.go:412] sh-output: {"message_type":"status","seconds_elapsed":78,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":0,"files_changed":1,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":1903560,"total_files_processed":1,"total_bytes_processed":1903274,"total_duration":82.112362962,"snapshot_id":"aaf34be3"}
+
+I0104 05:57:39.343741       1 backup.go:595] Enabling balancer of  mng-shrd
+I0104 05:57:39.439864       1 backup.go:700] Attempting to unlock secondary member mng-shrd-configsvr-1.mng-shrd-configsvr-pods.db.svc.cluster.local:27017
+I0104 05:57:39.783392       1 backup.go:700] Attempting to unlock secondary member mng-shrd-shard0-1.mng-shrd-shard0-pods.db.svc.cluster.local:27017
+I0104 05:57:39.897116       1 backup.go:700] Attempting to unlock secondary member mng-shrd-shard1-1.mng-shrd-shard1-pods.db.svc.cluster.local:27017
+^[[A
+unable to create lock in backend: repository is already locked by PID 108 on stash-backup-mongo-backup-1641274442-0-6zkk5 by root (UID 0, GID 0)
+lock was created at 2022-01-04 05:34:20 (23m24.938462176s ago)
+storage ID f287cd64
+the `unlock` command can be used to remove stale locks
+W0104 05:57:45.659760       1 status.go:273] Failed to apply retention policy. Reason: lock was created at 2022-01-04 05:34:20 (23m24.938462176s ago) storage ID f287cd64 the `unlock` command can be used to remove stale locks
+Error: lock was created at 2022-01-04 05:34:20 (23m24.938462176s ago) storage ID f287cd64 the `unlock` command can be used to remove stale locks
+Usage:
+  stash update-status [flags]
+
+Flags:
+      --backupsession string             Name of the Backup Session
+      --bucket string                    Name of the cloud bucket/container (keep empty for local backend)
+      --enable-cache                     Specify whether to enable caching for restic
+      --endpoint string                  Endpoint for s3/s3 compatible backend or REST server URL
+  -h, --help                             help for update-status
+      --invoker-kind string              Type of the respective backup/restore invoker
+      --invoker-name string              Name of the respective backup/restore invoker
+      --kubeconfig string                Path to kubeconfig file with authorization information (the master location is set by the master flag).
+      --master string                    The address of the Kubernetes API server (overrides any value in kubeconfig)
+      --max-connections int              Specify maximum concurrent connections for GCS, Azure and B2 backend
+      --metrics-enabled                  Specify whether to export Prometheus metrics
+      --metrics-labels strings           Labels to apply in exported metrics
+      --metrics-pushgateway-url string   Pushgateway URL where the metrics will be pushed
+      --namespace string                 Namespace of Backup/Restore Session (default "default")
+      --output-dir string                Directory where output.json file will be written (keep empty if you don't need to write output in file)
+      --path string                      Directory inside the bucket where backed up data will be stored
+      --provider string                  Backend provider (i.e. gcs, s3, azure etc)
+      --region string                    Region for s3/s3 compatible backend
+      --repository string                Name of the Repository
+      --scratch-dir string               Temporary directory
+      --secret-dir string                Directory where storage secret has been mounted
+      --target-kind string               Kind of the target
+      --target-name string               Name of the target
+
+Global Flags:
+      --add-dir-header                   If true, adds the file directory to the header of the log messages
+      --alsologtostderr                  log to standard error as well as files
+      --bypass-validating-webhook-xray   if true, bypasses validating webhook xray checks
+      --log-backtrace-at traceLocation   when logging hits line file:N, emit a stack trace (default :0)
+      --log-dir string                   If non-empty, write log files in this directory
+      --log-file string                  If non-empty, use this log file
+      --log-file-max-size uint           Defines the maximum size a log file can grow to. Unit is megabytes. If the value is 0, the maximum file size is unlimited. (default 1800)
+      --log-flush-frequency duration     Maximum number of seconds between log flushes (default 5s)
+      --logtostderr                      log to standard error instead of files (default true)
+      --one-output                       If true, only write logs to their native severity level (vs also writing to each lower severity level)
+      --service-name string              Stash service name. (default "stash-operator")
+      --skip-headers                     If true, avoid header prefixes in the log messages
+      --skip-log-headers                 If true, avoid headers when opening log files
+      --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
+      --use-kubeapiserver-fqdn-for-aks   if true, uses kube-apiserver FQDN for AKS cluster to workaround https://github.com/Azure/AKS/issues/522 (default true)
+  -v, --v Level                          number for the log level verbosity
+      --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
+
+F0104 05:57:45.726047       1 main.go:43] Error in Stash Main: lock was created at 2022-01-04 05:34:20 (23m24.938462176s ago) storage ID f287cd64 the `unlock` command can be used to remove stale locks
+goroutine 1 [running]:
+k8s.io/klog/v2.stacks(0x1)
+	/src/vendor/k8s.io/klog/v2/klog.go:1021 +0x8a
+k8s.io/klog/v2.(*loggingT).output(0x54a3f40, 0x3, {0x0, 0x0}, 0xc005bf0380, {0x457c3c8, 0x20}, 0xc00006e400, 0x0)
+	/src/vendor/k8s.io/klog/v2/klog.go:970 +0x569
+k8s.io/klog/v2.(*loggingT).println(0xc005b9aa00, 0xa, {0x0, 0x0}, {0x0, 0x0}, {0xc003bbf5e0, 0x2, 0x60})
+	/src/vendor/k8s.io/klog/v2/klog.go:711 +0x15a
+k8s.io/klog/v2.Fatalln(...)
+	/src/vendor/k8s.io/klog/v2/klog.go:1502
+main.main()
+	/src/cmd/stash-enterprise/main.go:43 +0x11e
+
+goroutine 17 [chan receive]:
+k8s.io/klog/v2.(*loggingT).flushDaemon(0x0)
+	/src/vendor/k8s.io/klog/v2/klog.go:1164 +0x6a
+created by k8s.io/klog/v2.init.0
+	/src/vendor/k8s.io/klog/v2/klog.go:418 +0xfb
+
+goroutine 34 [sleep]:
+time.Sleep(0x6fc23ac00)
+	/usr/local/go/src/runtime/time.go:193 +0x12e
+sigs.k8s.io/controller-runtime/pkg/log.init.0.func1()
+	/src/vendor/sigs.k8s.io/controller-runtime/pkg/log/log.go:63 +0x38
+created by sigs.k8s.io/controller-runtime/pkg/log.init.0
+	/src/vendor/sigs.k8s.io/controller-runtime/pkg/log/log.go:62 +0x25
+
+goroutine 98 [select]:
+go.opencensus.io/stats/view.(*worker).start(0xc000347680)
+	/src/vendor/go.opencensus.io/stats/view/worker.go:154 +0xb9
+created by go.opencensus.io/stats/view.init.0
+	/src/vendor/go.opencensus.io/stats/view/worker.go:32 +0x87
+
+goroutine 103 [syscall]:
+os/signal.signal_recv()
+	/usr/local/go/src/runtime/sigqueue.go:169 +0x98
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:24 +0x19
+created by os/signal.Notify.func1.1
+	/usr/local/go/src/os/signal/signal.go:151 +0x2c
+
+goroutine 104 [chan receive]:
+k8s.io/apiserver/pkg/server.SetupSignalContext.func1()
+	/src/vendor/k8s.io/apiserver/pkg/server/signal.go:48 +0x2b
+created by k8s.io/apiserver/pkg/server.SetupSignalContext
+	/src/vendor/k8s.io/apiserver/pkg/server/signal.go:47 +0xe7
+
+goroutine 105 [select]:
+gomodules.xyz/wait.BackoffUntil(0x0, {0x3dccae0, 0xc0058b8a20}, 0x1, 0xc004e5a300)
+	/src/vendor/gomodules.xyz/wait/wait.go:166 +0x13b
+gomodules.xyz/wait.JitterUntil(0x0, 0x12a05f200, 0x0, 0x0, 0x0)
+	/src/vendor/gomodules.xyz/wait/wait.go:132 +0x89
+gomodules.xyz/wait.Until(...)
+	/src/vendor/gomodules.xyz/wait/wait.go:89
+gomodules.xyz/wait.Forever(0x0, 0x0)
+	/src/vendor/gomodules.xyz/wait/wait.go:80 +0x28
+created by gomodules.xyz/logs.InitLogs
+	/src/vendor/gomodules.xyz/logs/lib.go:120 +0x79
+
+goroutine 110 [IO wait]:
+internal/poll.runtime_pollWait(0x7fe63e59d370, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:234 +0x89
+internal/poll.(*pollDesc).wait(0xc005be3780, 0xc004cf6000, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc005be3780, {0xc004cf6000, 0x1708, 0x1708})
+	/usr/local/go/src/internal/poll/fd_unix.go:167 +0x25a
+net.(*netFD).Read(0xc005be3780, {0xc004cf6000, 0xc004cf602f, 0xd75})
+	/usr/local/go/src/net/fd_posix.go:56 +0x29
+net.(*conn).Read(0xc005c64358, {0xc004cf6000, 0x416f86, 0xc005cc57f0})
+	/usr/local/go/src/net/net.go:183 +0x45
+crypto/tls.(*atLeastReader).Read(0xc003bb8540, {0xc004cf6000, 0x0, 0x409bcd})
+	/usr/local/go/src/crypto/tls/conn.go:777 +0x3d
+bytes.(*Buffer).ReadFrom(0xc005c765f8, {0x3dcb1e0, 0xc003bb8540})
+	/usr/local/go/src/bytes/buffer.go:204 +0x98
+crypto/tls.(*Conn).readFromUntil(0xc005c76380, {0x3dce900, 0xc005c64358}, 0x16de)
+	/usr/local/go/src/crypto/tls/conn.go:799 +0xe5
+crypto/tls.(*Conn).readRecordOrCCS(0xc005c76380, 0x0)
+	/usr/local/go/src/crypto/tls/conn.go:606 +0x112
+crypto/tls.(*Conn).readRecord(...)
+	/usr/local/go/src/crypto/tls/conn.go:574
+crypto/tls.(*Conn).Read(0xc005c76380, {0xc005cda000, 0x1000, 0xc003bbcd20})
+	/usr/local/go/src/crypto/tls/conn.go:1277 +0x16f
+bufio.(*Reader).Read(0xc005cd8600, {0xc00056c9d8, 0x9, 0xc0003e0fa0})
+	/usr/local/go/src/bufio/bufio.go:227 +0x1b4
+io.ReadAtLeast({0x3dcafe0, 0xc005cd8600}, {0xc00056c9d8, 0x9, 0x9}, 0x9)
+	/usr/local/go/src/io/io.go:328 +0x9a
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:347
+golang.org/x/net/http2.readFrameHeader({0xc00056c9d8, 0x9, 0xc00006e800}, {0x3dcafe0, 0xc005cd8600})
+	/src/vendor/golang.org/x/net/http2/frame.go:237 +0x6e
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc00056c9a0)
+	/src/vendor/golang.org/x/net/http2/frame.go:492 +0x95
+golang.org/x/net/http2.(*clientConnReadLoop).run(0xc005cc5fa0)
+	/src/vendor/golang.org/x/net/http2/transport.go:1819 +0x165
+golang.org/x/net/http2.(*ClientConn).readLoop(0xc005c7e480)
+	/src/vendor/golang.org/x/net/http2/transport.go:1741 +0x79
+created by golang.org/x/net/http2.(*Transport).newClientConn
+	/src/vendor/golang.org/x/net/http2/transport.go:705 +0xb45
+
+goroutine 96 [IO wait]:
+internal/poll.runtime_pollWait(0x7fe63e59d0b8, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:234 +0x89
+internal/poll.(*pollDesc).wait(0xc0000f3000, 0xc0006c7000, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x32
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc0000f3000, {0xc0006c7000, 0x1000, 0x1000})
+	/usr/local/go/src/internal/poll/fd_unix.go:167 +0x25a
+net.(*netFD).Read(0xc0000f3000, {0xc0006c7000, 0x1, 0x0})
+	/usr/local/go/src/net/fd_posix.go:56 +0x29
+net.(*conn).Read(0xc005e227b0, {0xc0006c7000, 0x2c, 0x29c01010000})
+	/usr/local/go/src/net/net.go:183 +0x45
+net/http.(*persistConn).Read(0xc004f41200, {0xc0006c7000, 0x448ee0, 0xc005e48ec8})
+	/usr/local/go/src/net/http/transport.go:1926 +0x4e
+bufio.(*Reader).fill(0xc005e06c60)
+	/usr/local/go/src/bufio/bufio.go:101 +0x103
+bufio.(*Reader).Peek(0xc005e06c60, 0x1)
+	/usr/local/go/src/bufio/bufio.go:139 +0x5d
+net/http.(*persistConn).readLoop(0xc004f41200)
+	/usr/local/go/src/net/http/transport.go:2087 +0x1ac
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1747 +0x1e05
+
+goroutine 178 [runnable]:
+text/template/parse.(*lexer).emit(...)
+	/usr/local/go/src/text/template/parse/lex.go:157
+text/template/parse.lexText(0xc0000f3080)
+	/usr/local/go/src/text/template/parse/lex.go:269 +0x44a
+text/template/parse.(*lexer).run(0xc0000f3080)
+	/usr/local/go/src/text/template/parse/lex.go:230 +0x2a
+created by text/template/parse.lex
+	/usr/local/go/src/text/template/parse/lex.go:223 +0x1cf
+
+goroutine 177 [select]:
+net/http.(*persistConn).writeLoop(0xc004f41200)
+	/usr/local/go/src/net/http/transport.go:2386 +0xfb
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1748 +0x1e65
+^[[Arpc error: code = NotFound desc = an error occurred when try to find container "1d577844205a8e03bd539311bd7cf2450969b1d0d6c48b0fba54dfe1f1a05447": not found⏎                                           ⋊> ~ kl pod/stash-backup-mongo-backup-1641275762-0-72d7t -n db --all-containers                                                                                                                     11:57:46
+unable to retrieve container logs for containerd://59f6675f4379100eb496e56a1e19d9631ad86ced96c64dda7c030cf6a5bc7bfbunable to retrieve container logs for containerd://1d577844205a8e03bd539311bd7cf2450969b1d0d6c48b0fba54dfe1f1a05447⏎     

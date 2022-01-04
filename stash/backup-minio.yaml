@@ -8,12 +8,7 @@ spec:
   task:
     name: mongodb-backup-4.4.6
   repository:
-    name: local-repo
-  runtimeSettings: # to use with hostPath volume
-    container:
-      securityContext:
-        runAsUser: 0
-        runAsGroup: 0
+    name: minio-repo
   target:
     ref:
       apiVersion: appcatalog.appscode.com/v1alpha1
@@ -23,3 +18,6 @@ spec:
     name: keep-last-5
     keepLast: 5
     prune: true
+
+# backup-mongo
+# backup-mongo.us-southeast-1.linodeobjects.com

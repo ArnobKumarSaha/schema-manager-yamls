@@ -1,0 +1,5 @@
+https://github.com/minio/minio/tree/master/helm/minio
+helm repo add minio https://charts.min.io/
+helm install --namespace minio --values=./value.yaml minio minio/minio 
+
+kubectl port-forward -n minio svc/minio-console 9001

@@ -16,7 +16,7 @@ spec:
     resources:
       requests:
         storage: 100Mi
-  #terminationPolicy: WipeOut
+  terminationPolicy: WipeOut
   #init:
   #  waitForInitialRestore: true
   # terminationPolicy and init is added when trying to restore
