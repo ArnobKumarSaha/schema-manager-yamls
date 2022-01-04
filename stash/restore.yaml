@@ -7,7 +7,7 @@ spec:
   task:
     name: mongodb-restore-4.4.6
   repository:
-    name: local-repo
+    name: minio-repo #local-repo
   target:
     ref:
       apiVersion: appcatalog.appscode.com/v1alpha1

@@ -13,11 +13,8 @@ spec:
     ref:
       apiVersion: appcatalog.appscode.com/v1alpha1
       kind: AppBinding
-      name: mng-shrd
+      name: mongodb # mng-shrd
   retentionPolicy:
     name: keep-last-5
     keepLast: 5
     prune: true
-
-# backup-mongo
-# backup-mongo.us-southeast-1.linodeobjects.com

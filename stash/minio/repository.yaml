@@ -8,5 +8,5 @@ spec:
     s3:
       endpoint: http://minio.minio.svc:9000
       bucket: backup-mongo
-      prefix: shard
+      prefix: standalone #replica #shard
     storageSecretName: minio-secret
