@@ -1,7 +1,7 @@
 apiVersion: kubedb.com/v1alpha2
 kind: MongoDB
 metadata:
-  name: mng-shrd
+  name: mongodb
   namespace: db
 spec:
   version: 4.4.6
