@@ -1,4 +1,4 @@
-Taken in 29th december, 2021
+Taken in 14th january, 2021
 
 https://license-issuer.appscode.com/?p=kubedb-enterprise
 kubectl get ns kube-system -o=jsonpath='{.metadata.uid}'
@@ -26,9 +26,9 @@ helm uninstall kubedb-enterprise --namespace kubedb
 helm search repo appscode/kubevault
 
 helm install kubevault appscode/kubevault \
-    --version v2021.10.11 \
+    --version v2022.01.11 \
     --namespace kubevault --create-namespace \
-    --set-file global.license=/home/arnob/files/license/kubevault.txt 
+    --set-file global.license=/home/arnob/files/license/kubevault.txt
 
 watch kubectl get pods --all-namespaces -l "app.kubernetes.io/instance=kubevault"
 
@@ -65,4 +65,7 @@ helm install \
 
 helm --namespace cert-manager delete cert-manager
 kubectl delete namespace cert-manager
+
+--- 
+helm install --namespace minio --create-namespace --values=/home/arnob/files/stash/minio/value.yaml minio minio/minio
 

@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: nginx
+        command: ["/bin/sh", "-c", "-e"]
+        args: ["echo world; echoo baal; echo sdf"]
+      restartPolicy: Never
+  backoffLimit: 4
