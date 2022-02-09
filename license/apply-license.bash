@@ -4,12 +4,12 @@ set -x
 
 helm repo update
 
-helm install kubedb appscode/kubedb \
-    --version v2021.12.21 \
-    --namespace kubedb --create-namespace \
-    --set kubedb-enterprise.enabled=true \
-    --set kubedb-autoscaler.enabled=true \
-    --set-file global.license=/home/arnob/files/license/kubedb.txt 
+# helm install kubedb appscode/kubedb \
+#     --version v2021.12.21 \
+#     --namespace kubedb --create-namespace \
+#     --set kubedb-enterprise.enabled=true \
+#     --set kubedb-autoscaler.enabled=true \
+#     --set-file global.license=/home/arnob/files/license/kubedb.txt 
 
 helm install kubevault appscode/kubevault \
     --version v2022.01.11 \
@@ -29,6 +29,6 @@ helm install cert-manager jetstack/cert-manager \
   --set installCRDs=true
 
 helm install minio minio/minio \
-  --namespace minio --create-namespace 
+  --namespace minio --create-namespace \
   --values=/home/arnob/files/stash/minio/value.yaml
 

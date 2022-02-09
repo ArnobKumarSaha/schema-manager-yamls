@@ -31,10 +31,26 @@ while [[ true ]]; do
     fi
 done
 
+# echo "Checking for KubeDB"
+# KUBEDB_POD_COUNT=3
+# while [[ true ]]; do
+#     out=$(kubectl get pods --all-namespaces -l "app.kubernetes.io/instance=kubedb" -o=jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}')
+#     counter=0
+#     for i in $out
+#         do
+#         :
+#         counter=$( expr $counter + 1 )
+#     done
+#     if [[ $counter = $KUBEDB_POD_COUNT ]]; then
+#         break
+#     fi
+# done
+
+# This should be used if install kubedb manually (from mongo repo)
 echo "Checking for KubeDB"
-KUBEDB_POD_COUNT=3
+KUBEDB_POD_COUNT=1
 while [[ true ]]; do
-    out=$(kubectl get pods --all-namespaces -l "app.kubernetes.io/instance=kubedb" -o=jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}')
+    out=$(kubectl get pods --all-namespaces -l "app.kubernetes.io/name=kubedb-community" -o=jsonpath='{.items[?(@.status.phase=="Running")].metadata.name}')
     counter=0
     for i in $out
         do
