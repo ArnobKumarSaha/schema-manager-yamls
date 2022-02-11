@@ -1,0 +1,109 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  - pods
+  - secrets
+  - serviceaccounts
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - list
+  - watch
+
+- apiGroups:
+  - appcatalog.appscode.com
+  resources:
+  - appbindings
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - watch
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - watch
+- apiGroups:
+  - catalog.kubedb.com
+  resources:
+  - mongodbversions
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - engine.kubevault.com
+  resources:
+  - mongodbroles
+  - secretaccessrequests
+  - secretengines
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - watch
+- apiGroups:
+  - engine.kubevault.com
+  resources:
+  - secretaccessrequests/status
+  verbs:
+  - get
+  - list
+  - patch
+- apiGroups:
+  - kubedb.com
+  resources:
+  - mongodbs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - kubevault.com
+  resources:
+  - vaultservers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - stash.appscode.com
+  resources:
+  - repositories
+  - restoresessions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - watch
