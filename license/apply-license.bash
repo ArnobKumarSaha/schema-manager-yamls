@@ -17,7 +17,7 @@ helm install kubevault appscode/kubevault \
     --set-file global.license=/home/arnob/files/license/kubevault.txt
     
 helm install stash appscode/stash             \
-  --version v2021.11.24                  \
+  --version v2022.02.22                 \
   --namespace kube-system                       \
   --set features.enterprise=true                \
   --set-file global.license=/home/arnob/files/license/stash.txt

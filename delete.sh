@@ -8,8 +8,8 @@
 # where DBTYPE = alone / replica / shard
 
 #demo
-kubectl delete -f /home/arnob/files/workspace/vaultserver.yaml
-kubectl delete secret vault-keys -n demo
+kubectl delete -f /home/arnob/files/webinar/vault.yaml
+#kubectl delete secret vault-keys -n demo
 
 
 # db
@@ -17,16 +17,16 @@ kubectl delete secret -n db minio-secret
 
 if [ "$1" = alone ]
 then
-    kubectl delete -f /home/arnob/files/stash/alone-mongo.yaml
+    kubectl delete -f /home/arnob/files/webinar/db/standalone.yaml
 elif [ "$1" = replica ]
 then 
-    kubectl delete -f /home/arnob/files/stash/replica-mongo.yaml
+    kubectl delete -f /home/arnob/files/webinar/db/replica.yaml
 else 
-    kubectl delete -f /home/arnob/files/stash/shard-mongo.yaml
+    kubectl delete -f /home/arnob/files/webinar/db/shard.yaml
 fi
 
 kubectl delete -f /home/arnob/files/stash/minio/repository.yaml
 
 
 # dev
-kubectl delete -f /home/arnob/files/workspace/configmap.yaml
+kubectl delete -f /home/arnob/files/init/configmap.yaml

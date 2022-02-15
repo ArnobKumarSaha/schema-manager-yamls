@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  creationTimestamp: "2022-02-10T05:20:00Z"
+  creationTimestamp: "2022-02-15T08:37:02Z"
   generateName: mongodb-
   labels:
     app.kubernetes.io/component: database
@@ -19,9 +19,9 @@ metadata:
     controller: true
     kind: StatefulSet
     name: mongodb
-    uid: 1b8ee3f4-f2e7-4ec5-8809-f7c94d30279c
-  resourceVersion: "177285"
-  uid: d0cf80d4-4fb1-4349-b3ce-c3a3f673d86f
+    uid: 68254b5d-3515-4928-b6f9-cccb548b536c
+  resourceVersion: "111974"
+  uid: 57900347-de90-4021-a094-79ad6743eb1b
 spec:
   affinity:
     podAntiAffinity:
@@ -146,7 +146,7 @@ spec:
     - mountPath: /init-scripts
       name: init-scripts
     - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-      name: kube-api-access-nqwck
+      name: kube-api-access-xdwnz
       readOnly: true
   - args:
     - run
@@ -180,7 +180,7 @@ spec:
     terminationMessagePolicy: File
     volumeMounts:
     - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-      name: kube-api-access-nqwck
+      name: kube-api-access-xdwnz
       readOnly: true
   dnsPolicy: ClusterFirst
   enableServiceLinks: true
@@ -215,7 +215,7 @@ spec:
     - mountPath: /keydir-readonly
       name: keydir
     - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-      name: kube-api-access-nqwck
+      name: kube-api-access-xdwnz
       readOnly: true
   nodeName: kind-control-plane
   preemptionPolicy: PreemptLowerPriority
@@ -252,7 +252,7 @@ spec:
       secretName: mongodb-key
   - emptyDir: {}
     name: config
-  - name: kube-api-access-nqwck
+  - name: kube-api-access-xdwnz
     projected:
       defaultMode: 420
       sources:
@@ -273,23 +273,23 @@ spec:
 status:
   conditions:
   - lastProbeTime: null
-    lastTransitionTime: "2022-02-10T05:20:04Z"
+    lastTransitionTime: "2022-02-15T08:37:06Z"
     status: "True"
     type: Initialized
   - lastProbeTime: null
-    lastTransitionTime: "2022-02-10T05:20:23Z"
+    lastTransitionTime: "2022-02-15T08:37:25Z"
     status: "True"
     type: Ready
   - lastProbeTime: null
-    lastTransitionTime: "2022-02-10T05:20:23Z"
+    lastTransitionTime: "2022-02-15T08:37:25Z"
     status: "True"
     type: ContainersReady
   - lastProbeTime: null
-    lastTransitionTime: "2022-02-10T05:20:03Z"
+    lastTransitionTime: "2022-02-15T08:37:05Z"
     status: "True"
     type: PodScheduled
   containerStatuses:
-  - containerID: containerd://566c7fe7f82834204b12a995704d3d4ac465479ada0ee7251063e9915244dea6
+  - containerID: containerd://074493115b506c6b31caca0f042001d35827662f2342573fd09a175d5f1346d3
     image: docker.io/library/mongo:4.4.6
     imageID: docker.io/library/mongo@sha256:6efa052039903e731e4a5550c68a13c4869ddc93742c716332883fd9c77eb79b
     lastState: {}
@@ -299,8 +299,8 @@ status:
     started: true
     state:
       running:
-        startedAt: "2022-02-10T05:20:04Z"
-  - containerID: containerd://edc032df2648ec07dc25a7daaa2db6f2ed4e336353542dff5f30f65ac118f1a9
+        startedAt: "2022-02-15T08:37:06Z"
+  - containerID: containerd://44476b15f2cceab3f8870047c0ddac522f9bb77bab689cbc3528f3a4ba760a5d
     image: docker.io/kubedb/replication-mode-detector:v0.11.0
     imageID: docker.io/kubedb/replication-mode-detector@sha256:2fc794e2317f7a22c787c2325254b51adc426856b46ddaca958ceea9f19da578
     lastState: {}
@@ -310,10 +310,10 @@ status:
     started: true
     state:
       running:
-        startedAt: "2022-02-10T05:20:22Z"
+        startedAt: "2022-02-15T08:37:24Z"
   hostIP: 172.19.0.2
   initContainerStatuses:
-  - containerID: containerd://15a6ec4c6fff22e24a6e48dc79b5cbcd795b4b0b031d3bcbbb2b89c492eb6836
+  - containerID: containerd://79561119b1161afddb10296dc4639ca1c9b1bde8142383c892ab6a48994ee2f3
     image: docker.io/kubedb/mongodb-init:4.2-v3
     imageID: docker.io/kubedb/mongodb-init@sha256:77a9baacff0cd4037ffe0833fa1959c9b3b8f60db92eb8e53eaa19d6ecf651eb
     lastState: {}
@@ -322,14 +322,14 @@ status:
     restartCount: 0
     state:
       terminated:
-        containerID: containerd://15a6ec4c6fff22e24a6e48dc79b5cbcd795b4b0b031d3bcbbb2b89c492eb6836
+        containerID: containerd://79561119b1161afddb10296dc4639ca1c9b1bde8142383c892ab6a48994ee2f3
         exitCode: 0
-        finishedAt: "2022-02-10T05:20:04Z"
+        finishedAt: "2022-02-15T08:37:06Z"
         reason: Completed
-        startedAt: "2022-02-10T05:20:04Z"
+        startedAt: "2022-02-15T08:37:06Z"
   phase: Running
-  podIP: 10.244.0.14
+  podIP: 10.244.0.209
   podIPs:
-  - ip: 10.244.0.14
+  - ip: 10.244.0.209
   qosClass: Burstable
-  startTime: "2022-02-10T05:20:03Z"
+  startTime: "2022-02-15T08:37:05Z"

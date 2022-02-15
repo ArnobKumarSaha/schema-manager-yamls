@@ -10,3 +10,6 @@ spec:
       bucket: backup-mongo
       prefix: replica
     storageSecretName: minio-secret
+  usagePolicy:
+    allowedNamespaces:
+      from: Same

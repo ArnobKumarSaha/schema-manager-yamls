@@ -16,7 +16,7 @@ then
     kubectl create ns demo
 fi
 
-kubectl apply -f /home/arnob/files/workspace/vaultserver.yaml
+kubectl apply -f /home/arnob/files/webinar/vault.yaml
 
 
 # db
@@ -33,16 +33,16 @@ kubectl apply -f /home/arnob/files/stash/minio/repository.yaml
 
 if [ "$1" = alone ]
 then
-    kubectl apply -f /home/arnob/files/stash/alone-mongo.yaml
+    kubectl apply -f /home/arnob/files/webinar/db/standalone.yaml
     kubectl patch repository -n db minio-repo --type="merge" --patch='{"spec": {"backend": {"s3": {"prefix": "standalone"}}}}'
 
 elif [ "$1" = replica ]
 then 
-    kubectl apply -f /home/arnob/files/stash/replica-mongo.yaml
+    kubectl apply -f /home/arnob/files/webinar/db/replica.yaml
     kubectl patch repository -n db minio-repo --type="merge" --patch='{"spec": {"backend": {"s3": {"prefix": "replica"}}}}'
 
 else 
-    kubectl apply -f /home/arnob/files/stash/shard-mongo.yaml
+    kubectl apply -f /home/arnob/files/webinar/db/shard.yaml
     kubectl patch repository -n db minio-repo --type="merge" --patch='{"spec": {"backend": {"s3": {"prefix": "shard"}}}}'
 
 fi
@@ -53,4 +53,4 @@ if [ "$x" = yes ]
 then
     kubectl create ns dev
 fi
-kubectl apply -f /home/arnob/files/workspace/configmap.yaml
+kubectl apply -f /home/arnob/files/webinar/init/configmap.yaml

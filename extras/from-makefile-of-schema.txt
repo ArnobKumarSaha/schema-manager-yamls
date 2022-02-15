@@ -1,7 +1,0 @@
-IMG ?= arnobkumarsaha/controller:schema
-
-# ---------------------------------
-script:
-	/home/arnob/files/create.sh replica yes
-helloall: undeploy docker-build docker-push deploy script
-hello: docker-build docker-push deploy

@@ -7,6 +7,7 @@ spec:
   schedule: "*/1 * * * *"
   task:
     name: mongodb-backup-4.4.6
+    namespace: db
   repository:
     name: minio-repo
   target:
