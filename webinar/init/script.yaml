@@ -36,4 +36,10 @@ spec:
               - name: "HAVE_A_TRY"
                 value: "whoo! It works"
               name: cnt
+              image: nginx
+              command:
+               - /bin/sh
+               - -c
+              args:
+               - ls
   deletionPolicy: Delete

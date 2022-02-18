@@ -29,4 +29,12 @@ kubectl delete -f /home/arnob/files/stash/minio/repository.yaml
 
 
 # dev
-kubectl delete -f /home/arnob/files/init/configmap.yaml
+kubectl delete -f /home/arnob/files/webinar/init/configmap.yaml
+
+
+
+# namespaces
+sleep 15
+kubectl delete ns dev
+kubectl delete ns db
+kubectl delete ns demo
