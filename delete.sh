@@ -25,7 +25,7 @@ else
     kubectl delete -f /home/arnob/files/webinar/db/shard.yaml
 fi
 
-kubectl delete -f /home/arnob/files/stash/minio/repository.yaml
+kubectl delete -f /home/arnob/files/webinar/stash/repository.yaml
 
 
 # dev

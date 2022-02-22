@@ -12,4 +12,7 @@ spec:
     storageSecretName: minio-secret
   usagePolicy:
     allowedNamespaces:
-      from: Same
+      from: All #Selector
+      # Selector:
+      #   matchLabels:
+      #     "kubernetes.io/metadata.name": "dev"

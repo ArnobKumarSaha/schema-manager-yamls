@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  creationTimestamp: "2022-02-22T04:29:42Z"
+  creationTimestamp: "2022-02-22T04:09:44Z"
   generation: 1
   labels:
     app.kubernetes.io/component: database
     app.kubernetes.io/instance: mongo
     app.kubernetes.io/managed-by: kubedb.com
     app.kubernetes.io/name: mongodbs.kubedb.com
-    mongodb.kubedb.com/node.shard: mongo-shard0
-  name: mongo-shard0
+    mongodb.kubedb.com/node.config: mongo-configsvr
+  name: mongo-configsvr
   namespace: db
   ownerReferences:
   - apiVersion: kubedb.com/v1alpha2
@@ -17,9 +17,9 @@ metadata:
     controller: true
     kind: MongoDB
     name: mongo
-    uid: b361295d-390b-48eb-acc0-c12dc9de37ed
-  resourceVersion: "395431"
-  uid: 004504fb-1036-4481-9b90-6f639583e831
+    uid: 933ef88a-4706-41a3-a3dd-641a6044720c
+  resourceVersion: "392102"
+  uid: 0520513c-b304-4115-b0ce-a7c32459d36b
 spec:
   podManagementPolicy: OrderedReady
   replicas: 3
@@ -29,8 +29,8 @@ spec:
       app.kubernetes.io/instance: mongo
       app.kubernetes.io/managed-by: kubedb.com
       app.kubernetes.io/name: mongodbs.kubedb.com
-      mongodb.kubedb.com/node.shard: mongo-shard0
-  serviceName: mongo-shard0-pods
+      mongodb.kubedb.com/node.config: mongo-configsvr
+  serviceName: mongo-configsvr-pods
   template:
     metadata:
       creationTimestamp: null
@@ -39,7 +39,7 @@ spec:
         app.kubernetes.io/instance: mongo
         app.kubernetes.io/managed-by: kubedb.com
         app.kubernetes.io/name: mongodbs.kubedb.com
-        mongodb.kubedb.com/node.shard: mongo-shard0
+        mongodb.kubedb.com/node.config: mongo-configsvr
     spec:
       affinity:
         podAntiAffinity:
@@ -50,7 +50,7 @@ spec:
                   app.kubernetes.io/instance: mongo
                   app.kubernetes.io/managed-by: kubedb.com
                   app.kubernetes.io/name: mongodbs.kubedb.com
-                  mongodb.kubedb.com/node.shard: mongo-shard0
+                  mongodb.kubedb.com/node.config: mongo-configsvr
               namespaces:
               - db
               topologyKey: kubernetes.io/hostname
@@ -61,7 +61,7 @@ spec:
                   app.kubernetes.io/instance: mongo
                   app.kubernetes.io/managed-by: kubedb.com
                   app.kubernetes.io/name: mongodbs.kubedb.com
-                  mongodb.kubedb.com/node.shard: mongo-shard0
+                  mongodb.kubedb.com/node.config: mongo-configsvr
               namespaces:
               - db
               topologyKey: failure-domain.beta.kubernetes.io/zone
@@ -96,12 +96,13 @@ spec:
 status:
   collisionCount: 0
   currentReplicas: 3
-  currentRevision: mongo-shard0-7b979bb469
+  currentRevision: mongo-configsvr-758c85fbb5
   observedGeneration: 1
   readyReplicas: 3
   replicas: 3
-  updateRevision: mongo-shard0-7b979bb469
+  updateRevision: mongo-configsvr-758c85fbb5
   updatedReplicas: 3
+
 
 
 volumes:
@@ -148,7 +149,7 @@ initContainers:
     name: certdir
   - mountPath: /keydir-readonly
     name: keydir
-      
+    
 
 containers:
 - args:
@@ -156,8 +157,8 @@ containers:
   - --auth
   - --bind_ip_all
   - --port=27017
-  - --shardsvr
-  - --replSet=shard0
+  - --configsvr
+  - --replSet=cnfRepSet
   - --clusterAuthMode=keyFile
   - --keyFile=/data/configdb/key.txt
   - --ipv6
@@ -171,7 +172,7 @@ containers:
         apiVersion: v1
         fieldPath: metadata.namespace
   - name: REPLICA_SET
-    value: shard0
+    value: cnfRepSet
   - name: AUTH
     value: "true"
   - name: SSL_MODE
@@ -201,7 +202,7 @@ containers:
         command:
         - /bin/bash
         - -c
-        - /init-scripts/peer-finder -on-start=/init-scripts/sharding.sh -service=mongo-shard0-pods
+        - /init-scripts/peer-finder -on-start=/init-scripts/configdb.sh -service=mongo-configsvr-pods
   livenessProbe:
     exec:
       command:

@@ -29,7 +29,7 @@ kubectl create secret generic -n db minio-secret \
     --from-file=/home/arnob/files/stash/minio/AWS_ACCESS_KEY_ID \
     --from-file=/home/arnob/files/stash/minio/AWS_SECRET_ACCESS_KEY
 
-kubectl apply -f /home/arnob/files/stash/minio/repository.yaml
+kubectl apply -f /home/arnob/files/webinar/stash/repository.yaml
 
 if [ "$1" = alone ]
 then

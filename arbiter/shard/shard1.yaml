@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  creationTimestamp: "2022-02-22T04:09:44Z"
+  creationTimestamp: "2022-02-22T04:29:42Z"
   generation: 1
   labels:
     app.kubernetes.io/component: database
@@ -17,9 +17,9 @@ metadata:
     controller: true
     kind: MongoDB
     name: mongo
-    uid: 933ef88a-4706-41a3-a3dd-641a6044720c
-  resourceVersion: "392071"
-  uid: 34beebf4-2bd3-4349-a890-5f92c096a59a
+    uid: b361295d-390b-48eb-acc0-c12dc9de37ed
+  resourceVersion: "395422"
+  uid: aa4c4b63-85ec-445c-9f35-0fe7d22a56c1
 spec:
   podManagementPolicy: OrderedReady
   replicas: 3
