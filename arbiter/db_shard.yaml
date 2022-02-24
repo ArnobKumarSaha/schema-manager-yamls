@@ -47,5 +47,5 @@ spec:
           requests:
             storage: 100Mi
         storageClassName: standard
-  # arbiter:
-  #   replicas: 2
+  arbiter:
+    replicas: 2

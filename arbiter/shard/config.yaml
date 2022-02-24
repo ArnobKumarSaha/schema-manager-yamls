@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  creationTimestamp: "2022-02-22T04:29:42Z"
+  creationTimestamp: "2022-02-23T10:10:56Z"
   generation: 1
   labels:
     app.kubernetes.io/component: database
@@ -17,9 +17,9 @@ metadata:
     controller: true
     kind: MongoDB
     name: mongo
-    uid: b361295d-390b-48eb-acc0-c12dc9de37ed
-  resourceVersion: "395440"
-  uid: 0528f6b4-99c1-47f1-913d-6a4976b992a5
+    uid: 9c571c89-ba6c-4e0a-a3b7-ad9d2c9cdd35
+  resourceVersion: "501071"
+  uid: 8262c6be-192b-4c97-80a2-53a1723aa19b
 spec:
   podManagementPolicy: OrderedReady
   replicas: 3
@@ -68,14 +68,14 @@ spec:
             weight: 50
       containers:
       - args:
-        - --dbpath=/data/db
-        - --auth
         - --bind_ip_all
         - --port=27017
-        - --configsvr
-        - --replSet=cnfRepSet
         - --clusterAuthMode=keyFile
         - --keyFile=/data/configdb/key.txt
+        - --dbpath=/data/db
+        - --auth
+        - --configsvr
+        - --replSet=cnfRepSet
         - --ipv6
         - --tlsMode=disabled
         command:
@@ -238,9 +238,9 @@ spec:
 status:
   collisionCount: 0
   currentReplicas: 3
-  currentRevision: mongo-configsvr-758c85fbb5
+  currentRevision: mongo-configsvr-749b48848f
   observedGeneration: 1
   readyReplicas: 3
   replicas: 3
-  updateRevision: mongo-configsvr-758c85fbb5
+  updateRevision: mongo-configsvr-749b48848f
   updatedReplicas: 3
