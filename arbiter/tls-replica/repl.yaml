@@ -1,0 +1,64 @@
+apiVersion: kubedb.com/v1alpha2
+kind: MongoDB
+metadata:
+  name: mongodb
+  namespace: db
+spec:
+  allowedSchemas:
+    namespaces:
+      from: Selector
+      selector:
+        matchExpressions:
+        - {key: kubernetes.io/metadata.name, operator: In, values: [dev]}
+    selector:
+      matchLabels:
+        "schema.kubedb.com": "mongo"
+  version: "4.4.6"
+  replicaSet:
+    name: "replicaset"
+  podTemplate:
+    spec:
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "100Mi"
+  replicas: 3
+  storageType: Durable
+  storage:
+    storageClassName: "standard"
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Mi
+  # arbiter:
+  #   replicas: 2
+  sslMode: requireSSL
+  tls:
+    issuerRef:
+      apiGroup: "cert-manager.io"
+      kind: Issuer
+      name: mongo-ca-issuer
+  clusterAuthMode: x509
+
+
+# mongo --ipv6 --host localhost --tls --tlsCAFile /var/run/mongodb/tls/ca.crt --tlsCertificateKeyFile /var/run/mongodb/tls/mongo.pem -u root -p "$MONGO_INITDB_ROOT_PASSWORD"
+
+# On arbiter-0 pod : 
+# rs.status()
+# {
+# 	"ok" : 0,
+# 	"errmsg" : "no replset config has been received",
+# 	"code" : 94,
+# 	"codeName" : "NotYetInitialized"
+# }
+
+
+# x=$(mongo admin "$ipv6" --host localhost "${ssl_args[@]}")
+# log "x = $x"
+# y=$(mongo admin --host localhost)
+# log "y = $y"
+# z=$(mongo admin "$ipv6" --host localhost "${ssl_args[@]}" --eval "rs.status().myState")
+# log "z = $z"
+# w=$(mongo admin "$ipv6" --host localhost "${ssl_args[@]}" --eval "db.adminCommand('ping')")
+# log "w = $w"

@@ -47,5 +47,10 @@ spec:
           requests:
             storage: 100Mi
         storageClassName: standard
-  #arbiter:
-    #replicas: 2
+  sslMode: requireSSL
+  tls:
+    issuerRef:
+      apiGroup: "cert-manager.io"
+      kind: Issuer
+      name: mongo-ca-issuer
+  clusterAuthMode: x509
