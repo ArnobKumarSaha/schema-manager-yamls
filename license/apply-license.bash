@@ -4,12 +4,15 @@ set -x
 
 helm repo update
 
-# helm install kubedb appscode/kubedb \
-#     --version v2021.12.21 \
-#     --namespace kubedb --create-namespace \
-#     --set kubedb-enterprise.enabled=true \
-#     --set kubedb-autoscaler.enabled=true \
-#     --set-file global.license=/home/arnob/files/license/kubedb.txt 
+helm install kubedb appscode/kubedb \
+  --version v2022.02.22 \
+  --namespace kubedb --create-namespace \
+  --set kubedb-provisioner.enabled=true \
+  --set kubedb-ops-manager.enabled=true \
+  --set kubedb-autoscaler.enabled=true \
+  --set kubedb-dashboard.enabled=true \
+  --set kubedb-schema-manager.enabled=true \
+  --set-file global.license=/path/to/the/license.txt
 
 helm install kubevault appscode/kubevault \
     --version v2022.01.11 \

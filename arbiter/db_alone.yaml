@@ -1,7 +1,7 @@
 apiVersion: kubedb.com/v1alpha2
 kind: MongoDB
 metadata:
-  name: mongo
+  name: mongodb
   namespace: db
 spec:
   allowedSchemas:
@@ -19,5 +19,12 @@ spec:
     resources:
       requests:
         storage: 100Mi
-  arbiter:
-    replicas: 2
+  sslMode: preferSSL
+  tls:
+    issuerRef:
+      apiGroup: "cert-manager.io"
+      kind: Issuer
+      name: mongo-ca-issuer
+  clusterAuthMode: sendX509
+  configSecret:
+    name: custom-config

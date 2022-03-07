@@ -1,5 +1,4 @@
 #!/bin/bash
-# new changes in `mongodb-init-docker` repo
 
 docker rmi $(docker images -f dangling=true -q)
 
@@ -8,11 +7,9 @@ for image in "${images[@]}"; do
     echo hi $image
     if [[ "$(docker images -q "$image" 2> /dev/null)" != "" ]]; then
         im=$(docker images -q "$image")
-        echo $im
         docker rmi $im
     fi
 done
-docker rmi $(docker images -f dangling=true -q)
 
 # rebuild the init-docker-container & replace it in mongoversion yaml
 cd /home/arnob/go/src/kubedb.dev/mongodb-init-docker && make push-to-kind

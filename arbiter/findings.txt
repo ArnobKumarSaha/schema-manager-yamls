@@ -1,0 +1,55 @@
+
+
+# mongo --ipv6 --host localhost --tls --tlsCAFile /var/run/mongodb/tls/ca.crt --tlsCertificateKeyFile /var/run/mongodb/tls/mongo.pem -u root -p "$MONGO_INITDB_ROOT_PASSWORD"
+
+# On arbiter-0 pod : 
+# rs.status()
+# {
+# 	"ok" : 0,
+# 	"errmsg" : "no replset config has been received",
+# 	"code" : 94,
+# 	"codeName" : "NotYetInitialized"
+# }
+
+
+# x=$(mongo admin "$ipv6" --host localhost "${ssl_args[@]}")
+# log "x = $x"
+# y=$(mongo admin --host localhost)
+# log "y = $y"
+# z=$(mongo admin "$ipv6" --host localhost "${ssl_args[@]}" --eval "rs.status().myState")
+# log "z = $z"
+# w=$(mongo admin "$ipv6" --host localhost "${ssl_args[@]}" --eval "db.adminCommand('ping')")
+# log "w = $w"
+
+
+# When trying tls. In arbiter pod log.txt
+[2022-03-03T05:37:06,028824485+00:00] [arbiter.sh] Running command mongo admin --ipv6 --host mongodb-0.mongodb-pods.db.svc --tls --tlsCAFile /var/run/mongodb/tls/ca.crt --tlsCertificateKeyFile /var/run/mongodb/tls/mongo.pem --quiet --eval JSON.stringify(rs.isMaster()) . . .
+[2022-03-03T05:37:06,072026135+00:00] [arbiter.sh] {"t":{"$date":"2022-03-03T05:37:06.069Z"},"s":"E",  "c":"NETWORK",  "id":23257,   "ctx":"js","msg":"The server certificate does not match the remote host name","attr":{"remoteHost":"mongodb-0.mongodb-pods.db.svc","certificateNames":"SAN(s): *.mongodb-arbiter-pods.db.svc, *.mongodb-arbiter-pods.db.svc.cluster.local, localhost, mongodb, mongodb.db.svc, 127.0.0.1, CN: mongodb.db.svc"}}
+Error: couldn't connect to server mongodb-0.mongodb-pods.db.svc:27017, connection attempt failed: SSLHandshakeFailed: The server certificate does not match the host name. Hostname: mongodb-0.mongodb-pods.db.svc does not match SAN(s): *.mongodb-arbiter-pods.db.svc, *.mongodb-arbiter-pods.db.svc.cluster.local, localhost, mongodb, mongodb.db.svc, 127.0.0.1, CN: mongodb.db.svc :
+connect@src/mongo/shell/mongo.js:374:17
+@(connect):3:6
+exception: connect failed
+exiting with code 1
+
+
+# configSecret testing
+db._adminCommand( {getCmdLineOpts: 1})
+mongod.conf file consists => 
+net:
+   maxIncomingConnections: 10000
+kubectl create secret generic -n db custom-config --from-file=./mongod.conf
+
+
+
+
+
+secret/default-token-hsw5j                    kubernetes.io/service-account-token   3      45s
+secret/minio-server-secretmongodb-sxw7hi      Opaque                                2      45s
+secret/mongodb-e2e-vigmqz                     Opaque                                1      39s
+secret/mongodb-rkx2uo-auth                    Opaque                                2      39s
+secret/mongodb-rkx2uo-client-cert             kubernetes.io/tls                     3      39s
+secret/mongodb-rkx2uo-metrics-exporter-cert   kubernetes.io/tls                     3      39s
+secret/mongodb-rkx2uo-self-signed-ca-1bjfb3   Opaque                                2      39s
+secret/mongodb-rkx2uo-server-cert             kubernetes.io/tls                     3      39s
+secret/mongodb-rkx2uo-token-wlv4k             kubernetes.io/service-account-token   3      39s
+
