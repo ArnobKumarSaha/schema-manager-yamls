@@ -22,7 +22,7 @@ spec:
         requests:
           cpu: "100m"
           memory: "100Mi"
-  replicas: 3
+  replicas: 2
   storageType: Durable
   storage:
     storageClassName: "standard"
@@ -31,20 +31,20 @@ spec:
     resources:
       requests:
         storage: 100Mi
-  init:
-    script:
-      configMap:
-        name: mg-init
-  sslMode: preferSSL
-  tls:
-    issuerRef:
-      apiGroup: "cert-manager.io"
-      kind: Issuer
-      name: mongo-ca-issuer
-  clusterAuthMode: sendX509
-  configSecret:
-    name: custom-config
-  arbiter:
-    podTemplate: null
+  # init:
+  #   script:
+  #     configMap:
+  #       name: mg-init
+  # sslMode: preferSSL
+  # tls:
+  #   issuerRef:
+  #     apiGroup: "cert-manager.io"
+  #     kind: Issuer
+  #     name: mongo-ca-issuer
+  # clusterAuthMode: x509
+  # configSecret:
+  #   name: custom-config
+  # arbiter:
+  #   podTemplate: null
 
 

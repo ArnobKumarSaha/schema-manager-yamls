@@ -19,12 +19,12 @@ spec:
     resources:
       requests:
         storage: 100Mi
-  sslMode: preferSSL
-  tls:
-    issuerRef:
-      apiGroup: "cert-manager.io"
-      kind: Issuer
-      name: mongo-ca-issuer
-  clusterAuthMode: sendX509
-  configSecret:
-    name: custom-config
+  # sslMode: preferSSL
+  # tls:
+  #   issuerRef:
+  #     apiGroup: "cert-manager.io"
+  #     kind: Issuer
+  #     name: mongo-ca-issuer
+  # clusterAuthMode: sendX509
+  # configSecret:
+  #   name: custom-config

@@ -33,6 +33,7 @@ exiting with code 1
 
 
 # configSecret testing
+db.serverCmdLineOpts()
 db._adminCommand( {getCmdLineOpts: 1})
 mongod.conf file consists => 
 net:
@@ -40,16 +41,67 @@ net:
 kubectl create secret generic -n db custom-config --from-file=./mongod.conf
 
 
+rs.initiate(
+   {
+      _id: "rs0",
+      version: 1,
+      members: [
+         { _id: 0, host : "localhost:27017" },
+         { _id: 1, host : "localhost:27018" },
+         { _id: 2, host : "localhost:27019" }
+      ]
+   }
+)
+
+
+PostStartHookError: command '/bin/bash -c /init-scripts/peer-finder -on-start=/init-scripts/sharding.sh 
+-service=mongo-sh-6b5pe8-shard0-pods' exited with 1: 2022/03/10 10:44:15 Determined Domain to be mongodb-8lle4x.svc.cluster.local...
+
+[arbiter.sh] {\"ok\":0,\"errmsg\":\"Found two member configurations with same host field, 
+members.3.host == members.4.host == mongo-sh-03i2io-shard1-arbiter-0.mongo-sh-03i2io-shard1-arbiter-pods.mongodb-9ttiyo.svc:27017\",\"code\":103,\
+"codeName\":\"NewReplicaSetConfigurationIncompatible\"}\nparse error: Invalid numeric literal at line 1, column 8\nparse error: Invalid numeric literal at line 1, 
+column 8\nparse error: Invalid numeric literal at line 1, column 8\nparse error: Invalid numeric literal at line 1, column 8\n"
 
 
 
-secret/default-token-hsw5j                    kubernetes.io/service-account-token   3      45s
-secret/minio-server-secretmongodb-sxw7hi      Opaque                                2      45s
-secret/mongodb-e2e-vigmqz                     Opaque                                1      39s
-secret/mongodb-rkx2uo-auth                    Opaque                                2      39s
-secret/mongodb-rkx2uo-client-cert             kubernetes.io/tls                     3      39s
-secret/mongodb-rkx2uo-metrics-exporter-cert   kubernetes.io/tls                     3      39s
-secret/mongodb-rkx2uo-self-signed-ca-1bjfb3   Opaque                                2      39s
-secret/mongodb-rkx2uo-server-cert             kubernetes.io/tls                     3      39s
-secret/mongodb-rkx2uo-token-wlv4k             kubernetes.io/service-account-token   3      39s
+restart.go er run() ->  opts.checkNodes() -> c.IsOplogSynced() -> c.IsMaster() -> GetMongoClient() -> mongodb_helpers.go er GoverningServiceName()
+ei stack trace e `panic: StatefulSet name is missing for MongoDB db/mongodb` panic kortese. 
 
+
+
+# after applying opsRequest, arbiter.sh got stuck on addArb() command . After that ::
+
+[2022-03-21T11:06:48,869420548+00:00] [arbiter.sh] Adding myself (mongodb-arbiter-0.mongodb-arbiter-pods.db.svc) as arbiter to replica set...
+[2022-03-21T11:06:48,870509236+00:00] [arbiter.sh] Running command mongo admin --ipv6 --host mongodb-0.mongodb-pods.db.svc -u root -p B5_;aDtpzNJL(9bL --authenticationDatabase admin --tls --tlsCAFile /var/run/mongodb/tls/ca.crt --tlsCertificateKeyFile /var/run/mongodb/tls/mongo.pem --quiet --eval JSON.stringify(rs.addArb('mongodb-arbiter-0.mongodb-arbiter-pods.db.svc')) . . .
+[2022-03-21T11:16:49,130310061+00:00] [arbiter.sh] assert.soon failed: function() {
+        var cfg = hostport;
+
+        var local = db.getSiblingDB("local");
+        assert(local.system.replset.count() <= 1,
+               "error: local.system.replset has unexpected contents");
+        var c = local.system.replset.findOne();
+        assert(c, "no config object retrievable from local.system.replset");
+
+        const attemptedVersion = c.version++;
+
+        var max = 0;
+        for (var i in c.members) {
+            // Omit 'newlyAdded' field if it exists in the config.
+            delete c.members[i].newlyAdded;
+            if (c.members[i]._id > max)
+                max = c.members[i]._id;
+        }
+        if (isString(hostport)) {
+            cfg = {_id: max + 1, host: hostport};
+            if (arb)
+                cfg.arbiterOnly = true;
+        } else if (arb == true) {
+            throw Error(
+                "Expected first parameter to be a host-and-port string of arbiter, but got " +
+                tojson(hostport));
+        }
+
+        if (cfg._id == null) {
+            cfg._id = max + 1;
+        }
+        c.members.push(cfg);

@@ -1,0 +1,33 @@
+apiVersion: ops.kubedb.com/v1alpha1
+kind: MongoDBOpsRequest
+metadata:
+  name: reconfigure
+  namespace: db
+spec:
+  type: Reconfigure
+  databaseRef:
+    name: mongodb
+  configuration:
+    standalone:
+      configSecret:
+        name: my-custom-config
+    # replicaSet:
+    #   configSecret:
+    #     name: my-custom-config
+    # arbiter:
+    #   configSecret:
+    #     name: my-custom-config
+    # mongos:
+    #   configSecret:
+    #     name: my-custom-config
+    # configServer:
+    #   configSecret:
+    #     name: my-custom-config
+    # shard:
+    #   configSecret:
+    #     name: my-custom-config
+
+# shard:
+#   inlineConfig: |-
+#     net:
+#         maxIncomingConnections: 20000

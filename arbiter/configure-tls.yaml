@@ -1,0 +1,14 @@
+apiVersion: ops.kubedb.com/v1alpha1
+kind: MongoDBOpsRequest
+metadata:
+  name: conf-tls
+  namespace: db
+spec:
+  databaseRef:
+    name: mongodb
+  tls:
+    issuerRef:
+      apiGroup: cert-manager.io
+      kind: Issuer
+      name: mongo-ca-issuer
+  type: ReconfigureTLS
