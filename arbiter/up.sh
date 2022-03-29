@@ -3,7 +3,7 @@
 if [[ "$1" == "clean" ]]; then
     kubectl delete -f db_shard.yaml
     kubectl delete -f db_replica.yaml
-    kubectl delete -f tls-replica/issuer.yaml
+    kubectl delete -f tls/issuer.yaml
     sleep 30
     kubectl delete ns db
     sleep 5
@@ -11,8 +11,8 @@ fi
 
 kubectl create ns db
 kubectl apply -f cm.yaml
-kubectl apply -f tls-replica/secret.yaml
-kubectl apply -f tls-replica/issuer.yaml
+kubectl apply -f tls/secret.yaml
+kubectl apply -f tls/issuer.yaml
 kubectl create secret generic -n db custom-config --from-file=./mongod.conf
 # kubectl apply -f db_shard.yaml
 kubectl apply -f db_replica.yaml

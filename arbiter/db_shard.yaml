@@ -10,10 +10,11 @@ spec:
       selector:
         matchLabels:
          kubernetes.io/metadata.name: dev
-  version: 4.4.6
+  version: percona-4.2.7 #"4.4.6"
+  storageEngine: inMemory
   shardTopology:
     configServer:
-      replicas: 2
+      replicas: 3
       podTemplate:
         spec:
           resources:
@@ -36,11 +37,11 @@ spec:
               cpu: "100m"
               memory: "100Mi"
     shard:
-      arbiter:
-        podTemplate: null
+      # arbiter:
+      #   podTemplate: null
       # configSecret:
       #   name: custom-config
-      replicas: 2
+      replicas: 3
       podTemplate:
         spec:
           resources:
@@ -53,13 +54,13 @@ spec:
           requests:
             storage: 100Mi
         storageClassName: standard
-  sslMode: requireSSL
-  tls:
-    issuerRef:
-      apiGroup: "cert-manager.io"
-      kind: Issuer
-      name: mongo-ca-issuer
-  clusterAuthMode: x509
+  # sslMode: requireSSL
+  # tls:
+  #   issuerRef:
+  #     apiGroup: "cert-manager.io"
+  #     kind: Issuer
+  #     name: mongo-ca-issuer
+  # clusterAuthMode: x509
   # init:
   #   script:
   #     configMap:
