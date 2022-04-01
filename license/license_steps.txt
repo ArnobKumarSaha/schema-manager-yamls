@@ -11,11 +11,14 @@ helm repo update
 helm search repo appscode/kubedb
 
 helm install kubedb appscode/kubedb \
-    --version v2021.12.21 \
-    --namespace kubedb --create-namespace \
-    --set kubedb-enterprise.enabled=true \
-    --set kubedb-autoscaler.enabled=true \
-    --set-file global.license=/home/arnob/files/license/kubedb.txt 
+  --version v2022.03.28 \
+  --namespace kubedb --create-namespace \
+  --set kubedb-provisioner.enabled=true \
+  --set kubedb-ops-manager.enabled=true \
+  --set kubedb-autoscaler.enabled=true \
+  --set kubedb-dashboard.enabled=true \
+  --set kubedb-schema-manager.enabled=true \
+  --set-file global.license=/home/arnob/files/license/kubedb.txt
 
 watch kubectl get pods --all-namespaces -l "app.kubernetes.io/instance=kubedb"
 
@@ -26,7 +29,7 @@ helm uninstall kubedb-enterprise --namespace kubedb
 helm search repo appscode/kubevault
 
 helm install kubevault appscode/kubevault \
-    --version v2022.01.11 \
+    --version v2022.02.22 \
     --namespace kubevault --create-namespace \
     --set-file global.license=/home/arnob/files/license/kubevault.txt
 
@@ -40,11 +43,12 @@ helm uninstall kubevault-enterprise --namespace kubevault
 helm search repo appscode/stash
 
 helm install stash appscode/stash             \
-  --version v2022.02.22                 \
+  --version v2022.03.29                  \
   --namespace kube-system                       \
   --set features.enterprise=true                \
   --set-file global.license=/home/arnob/files/license/stash.txt
 
+v2021.11.24  v2022.02.22  v2022.03.29
 kubectl get pods --all-namespaces -l app.kubernetes.io/name=stash-enterprise --watch
 
 helm uninstall stash --namespace kube-system

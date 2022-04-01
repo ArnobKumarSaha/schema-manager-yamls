@@ -1,0 +1,28 @@
+apiVersion: appcatalog.appscode.com/v1alpha1
+kind: AppBinding
+metadata:
+  name: mongodb
+  namespace: db
+spec:
+  clientConfig:
+    service:
+      name: mongodb
+      port: 27017
+      scheme: mongodb
+  # parameters:
+  #   apiVersion: config.kubedb.com/v1alpha1
+  #   configServer: cnfRepSet/mongodb-configsvr-0.mongodb-configsvr-pods.db.svc:27017,mongodb-configsvr-1.mongodb-configsvr-pods.db.svc:27017
+  #   kind: MongoConfiguration
+  #   replicaSets:
+  #     host-0: shard0/mongodb-shard0-0.mongodb-shard0-pods.db.svc:27017,mongodb-shard0-1.mongodb-shard0-pods.db.svc:27017
+  #     host-1: shard1/mongodb-shard1-0.mongodb-shard1-pods.db.svc:27017,mongodb-shard1-1.mongodb-shard1-pods.db.svc:27017
+  #   stash:
+  #     addon:
+  #       backupTask:
+  #         name: mongodb-backup-4.4.6
+  #       restoreTask:
+  #         name: mongodb-restore-4.4.6
+  secret:
+    name: mongodb-auth
+  type: kubedb.com/mongodb
+  version: 4.4.6

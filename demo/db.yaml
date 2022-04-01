@@ -1,0 +1,26 @@
+apiVersion: kubedb.com/v1alpha2
+kind: MongoDB
+metadata:
+  name: mongodb
+  namespace: db
+spec:
+  allowedSchemas:
+    namespaces:
+      from: Selector
+      selector:
+        matchLabels:
+         kubernetes.io/metadata.name: mycluster
+        matchExpression:
+        - {key: kubernetes.io/metadata.name, operator: NotIn, values: [demo]}
+    selector:
+      matchLabels:
+        "schema.kubedb.com": "mongo"
+  version: "4.4.6"
+  storageType: Durable
+  storage:
+    storageClassName: "standard"
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 100Mi

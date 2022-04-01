@@ -1,0 +1,29 @@
+From the RestoreSession's pod-logs ::
+
+# For replicaset : 
+/bin/restic dump --quiet latest dump --host host-0 --no-cache | 
+mongorestore --host rs/mongodb-0.mongodb-pods.db.svc,mongodb-1.mongodb-pods.db.svc,mongodb-2.mongodb-pods.db.svc 
+--archive --username=v-kubernetes-demo-k8s-5d3096cd-17-bZuaaQlhyYtYgG9RWtwB-1648725135 --password=Jg1WQFRlkkuPq6P-dJKY 
+--authenticationDatabase mydb --db mydb
+
+# For sharded cluster :
+/bin/restic dump --quiet latest dump --host confighost --no-cache | 
+mongorestore --host cnfRepSet/mongodb-configsvr-0.mongodb-configsvr-pods.db.svc:27017,mongodb-configsvr-1.mongodb-configsvr-pods.db.svc:27017 
+--archive --username=v-kubernetes-demo-k8s-5d3096cd-17-HwNKl8bSCkZHSZKPSIG5-1648723332 --password=I4S-rpiEh0GRnJBZNBqS 
+--authenticationDatabase mydb --db mydb
+
+/bin/restic dump --quiet latest dump --host host-1 --no-cache | 
+mongorestore --host shard1/mongodb-shard1-0.mongodb-shard1-pods.db.svc:27017,mongodb-shard1-1.mongodb-shard1-pods.db.svc:27017 
+--archive --username=v-kubernetes-demo-k8s-5d3096cd-17-HwNKl8bSCkZHSZKPSIG5-1648723332 --password=I4S-rpiEh0GRnJBZNBqS 
+--authenticationDatabase mydb --db mydb
+
+/bin/restic dump --quiet latest dump --host host-0 --no-cache | 
+mongorestore --host shard0/mongodb-shard0-0.mongodb-shard0-pods.db.svc:27017,mongodb-shard0-1.mongodb-shard0-pods.db.svc:27017 
+--archive --username=v-kubernetes-demo-k8s-5d3096cd-17-HwNKl8bSCkZHSZKPSIG5-1648723332 --password=I4S-rpiEh0GRnJBZNBqS 
+--authenticationDatabase mydb --db mydb
+
+
+2022-03-31T10:42:13.759+0000	error connecting to host: could not connect to server: connection() error occured during connection handshake: auth error: sasl conversation error: unable to authenticate using mechanism "SCRAM-SHA-1": (AuthenticationFailed) Authentication failed.
+2022-03-31T10:42:13.761+0000	error connecting to host: could not connect to server: connection() error occured during connection handshake: auth error: sasl conversation error: unable to authenticate using mechanism "SCRAM-SHA-1": (AuthenticationFailed) Authentication failed.
+2022-03-31T10:42:13.768+0000	The --db and --collection flags are deprecated for this use-case; please use --nsInclude instead, i.e. with --nsInclude=${DATABASE}.${COLLECTION}
+2022-03-31T10:42:14.440+0000	preparing collections to restore from

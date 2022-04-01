@@ -1,0 +1,27 @@
+apiVersion: stash.appscode.com/v1beta1
+kind: RestoreSession
+metadata:
+  name: restore
+  namespace: db
+spec:
+  driver: Restic
+  repository:
+    name: minio-repo
+    namespace: db
+  runtimeSettings: {}
+  target:
+    ref:
+      apiVersion: appcatalog.appscode.com/v1alpha1
+      kind: AppBinding
+      name: mongodb
+    rules:
+    - snapshots:
+      - latest
+  task:
+    name: mongodb-restore-4.4.6
+    params:
+    - name: authenticationDatabase
+      value: admin
+    - name: args
+      value: --db mydb
+  tempDir: {}

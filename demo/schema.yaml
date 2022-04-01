@@ -1,0 +1,34 @@
+apiVersion: schema.kubedb.com/v1alpha1
+kind: MongoDBDatabase
+metadata:
+  name: schema
+  namespace: dev
+  labels:
+    "schema.kubedb.com": "mongo"
+spec:
+  database:
+    serverRef:
+      name: mongodb
+      namespace: db
+    config:
+      name: mydb
+  vaultRef:
+    name: vault
+    namespace: demo
+  accessPolicy:
+    subjects:
+      - name: "saname"
+        namespace: dev
+        kind: "ServiceAccount"
+        apiGroup: ""
+    defaultTTL: "40m"
+    maxTTL: "200h"
+  deletionPolicy: Delete
+  init:
+    initialized: false
+    snapshot:
+      repository:
+        name: minio-repo
+        namespace: db
+
+
