@@ -46,5 +46,7 @@ spec:
   #   name: custom-config
   arbiter:
     podTemplate: null
-
+  #   configSecret:
+  #     name: custom-config
+  terminationPolicy: WipeOut
 

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+
+
 function get_peers_for_replicaset {
     local HOSTS=$(echo "$1" | tr "/" "\n")
     # convert to an array
