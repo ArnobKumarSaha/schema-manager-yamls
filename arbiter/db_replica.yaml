@@ -35,13 +35,13 @@ spec:
   #   script:
   #     configMap:
   #       name: mg-init
-  # sslMode: requireSSL
-  # tls:
-  #   issuerRef:
-  #     apiGroup: "cert-manager.io"
-  #     kind: Issuer
-  #     name: mongo-ca-issuer
-  # clusterAuthMode: x509
+  sslMode: requireSSL
+  tls:
+    issuerRef:
+      apiGroup: "cert-manager.io"
+      kind: Issuer
+      name: mongo-ca-issuer
+  clusterAuthMode: x509
   # configSecret:
   #   name: custom-config
   arbiter:
