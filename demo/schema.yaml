@@ -24,11 +24,30 @@ spec:
     defaultTTL: "40m"
     maxTTL: "200h"
   deletionPolicy: Delete
+  # init:
+  #   initialized: false
+    # snapshot:
+    #   repository:
+    #     name: minio-repo
+    #     namespace: db
   init:
     initialized: false
-    snapshot:
-      repository:
-        name: minio-repo
-        namespace: db
+    script:
+      scriptPath: "/etc/config"
+      configMap:
+        name: "test-cm"
+      podTemplate:
+        spec:
+          containers:
+            - env:
+              - name: "HAVE_A_TRY"
+                value: "whoo! It works"
+              name: cnt
+              image: nginx
+              command:
+               - /bin/sh
+               - -c
+              args:
+               - ls
 
 

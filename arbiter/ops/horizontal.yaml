@@ -8,11 +8,11 @@ spec:
   databaseRef:
     name: mongodb
   horizontalScaling:
-    replicas: 4
+    replicas: 2
     # shard: 
-    #   shards: 1
+    #   shards: 2
     #   replicas: 2
     # mongos:
     #   replicas: 2
     # configServer:
-    #   replicas: 1
+    #   replicas: 2

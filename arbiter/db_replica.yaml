@@ -44,8 +44,8 @@ spec:
   clusterAuthMode: x509
   # configSecret:
   #   name: custom-config
-  arbiter:
-    podTemplate: null
+  # arbiter:
+  #   podTemplate: null
   #   configSecret:
   #     name: custom-config
   terminationPolicy: WipeOut

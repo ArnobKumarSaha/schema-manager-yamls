@@ -11,21 +11,21 @@ spec:
     # standalone:
     #   configSecret:
     #     name: custom-config
-    # replicaSet:
-    #   configSecret:
-    #     name: custom-config
+    replicaSet:
+      configSecret:
+        name: custom-config
     arbiter:
       configSecret:
         name: custom-config
-    mongos:
-      configSecret:
-        name: custom-config
-    configServer:
-      configSecret:
-        name: custom-config
-    shard:
-      configSecret:
-        name: custom-config
+    # mongos:
+    #   configSecret:
+    #     name: custom-config
+    # configServer:
+    #   configSecret:
+    #     name: custom-config
+    # shard:
+    #   configSecret:
+    #     name: custom-config
 
 # shard:
 #   inlineConfig: |-

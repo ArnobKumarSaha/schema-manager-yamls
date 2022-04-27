@@ -14,7 +14,7 @@ spec:
   # storageEngine: inMemory
   shardTopology:
     configServer:
-      replicas: 2
+      replicas: 3
       podTemplate:
         spec:
           resources:
