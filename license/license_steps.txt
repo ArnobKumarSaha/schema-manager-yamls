@@ -38,8 +38,7 @@ watch kubectl get pods --all-namespaces -l "app.kubernetes.io/instance=kubevault
 helm uninstall kubevault-enterprise --namespace kubevault
 
 
-***** Stash
--------------------------------------------------------------------
+***** Stash-------------------------------------------------------------------
 helm search repo appscode/stash
 
 helm install stash appscode/stash             \
@@ -55,8 +54,7 @@ helm uninstall stash --namespace kube-system
 kubectl delete crd -l=app.kubernetes.io/name=stash
 
 
-***** cert-manager
--------------------------------------------------------------------
+***** cert-manager-------------------------------------------------------------------
 helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
@@ -70,14 +68,29 @@ helm install \
 helm --namespace cert-manager delete cert-manager
 kubectl delete namespace cert-manager
 
-*****  minio
+***** minio -------------------------------------------------------------------
 helm repo add minio https://charts.min.io/
 kubectl port-forward svc/minio-console -n minio 9001
-
 helm install --namespace minio --create-namespace --values=/home/arnob/files/stash/minio/value.yaml minio minio/minio
 
 
 
-***** matrics server
+***** matrics server-------------------------------------------------------------------
 helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
 helm install metrics-server metrics-server/metrics-server --set=args={--kubelet-insecure-tls}
+
+
+***** prometheus -------------------------------------------------------------------
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm install prometheus prometheus-community/kube-prometheus-stack --create-namespace -n monitoring
+
+
+***** affirmed -------------------------------------------------------------------
+helm repo add ak8sdb https://raw.githubusercontent.com/ak8sdb/installer/master/stable
+helm install kubedb ak8sdb/kubedb \
+        -n kubedb \
+        --version v2022.05.13 \
+        --create-namespace \
+        --set-file global.license=/home/arnob/files/license/affirmed.txt
+
+To install from ak8sdb repos, run `make push-to-kind install` from `operator`, `enterprise` & `autoscaler`
