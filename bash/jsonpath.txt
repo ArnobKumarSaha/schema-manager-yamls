@@ -1,3 +1,14 @@
 kubectl get pods -n db -o=jsonpath='{range .items[*]}{.metadata.name}{\'\\t\'}{.status.podIP}{\'\\n\'}'
 
 kubectl get endpoints -n db -o=jsonpath='{range .items[*]}{.metadata.name}{\'\\t\'}{range .subsets[*]}{range .addresses[*]}{.ip}{\'\\n\'}'
+
+# Get main container's resource request of a pod
+kubectl get pod -n demo mg-rs-0 -o=jsonpath='{range .items[*]}{.metadata.name}{\'\\t\'}{.spec.containers[0].resources.requests}{\'\\n\'}'
+
+
+# Get main container's resource request from a statefulset
+kubectl get sts -n demo mg-rs -o=jsonpath='{range .items[*]}{.metadata.name}{\'\\t\'}{.spec.template.spec.containers[0].resources.requests}{\'\\n\'}'
+
+
+# For each of the containerRecommendations of all the vpas from autoscaler Status , Get target value
+kubectl get mgautoscaler mg-as-rs -n demo -o=jsonpath='{range .items[*]}{.metadata.name}{\'\\t\'}{range .status.vpas[*]}{range .recommendation.containerRecommendations[*]}{.containerName}{\'\\t\'}{.target}{\'\\n\'}'
