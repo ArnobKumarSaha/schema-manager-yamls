@@ -1,0 +1,25 @@
+apiVersion: stash.appscode.com/v1beta1
+kind: RestoreSession
+metadata:
+  name: restore
+  namespace: demo
+spec:
+  task:
+    name: mongodb-restore-4.4.6
+    # params:
+    # - name: "args"
+    #   value: "--db mydb"
+  repository:
+    name: repo
+    namespace: demo
+  target:
+    ref:
+      apiVersion: appcatalog.appscode.com/v1alpha1
+      kind: AppBinding
+      name: checker
+      namespace: demo
+  # runtimeSettings:
+  #   pod:
+  #     serviceAccountName: cross-namespace-target-reader
+  rules:
+    - snapshots: [latest]

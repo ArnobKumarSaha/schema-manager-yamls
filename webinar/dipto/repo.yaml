@@ -1,0 +1,20 @@
+apiVersion: stash.appscode.com/v1alpha1
+kind: Repository
+metadata:
+  name: repo
+  namespace: demo
+spec:
+  backend:
+    # local:
+    #   mountPath: /hello
+    #   persistentVolumeClaim:
+    #     claimName: pvc
+    # storageSecretName: local-secret
+    s3:
+      endpoint: http://minio.minio.svc:9000
+      bucket: backup-mongo
+      prefix: replica
+    storageSecretName: minio-secret
+  usagePolicy:
+    allowedNamespaces:
+      from: All

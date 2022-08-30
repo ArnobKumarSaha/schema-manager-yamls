@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+# type: Opaque
+metadata:
+  name: my-vault-secret
+  namespace: demo
+  annotations:
+    kubernetes.io/service-account.name: "vault-k8s-token-reviewer"
+  #   kubernetes.io/service-account.uid: "ea15b796-f6b5-4df0-94c0-832e336f11fd"
+# data:
+#   mongod.conf: bmV0OgogICBtYXhJbmNvbWluZ0Nvbm5lY3Rpb25zOiAxMDAwMgo=
+
+---
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: my-vault-sa
+#   namespace: demo
+# secrets:
+# - kind: Secret
+#   name: my-vault-secret
+#   namespace: demo
+#   apiVersion: v1
