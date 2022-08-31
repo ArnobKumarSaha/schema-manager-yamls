@@ -5,16 +5,21 @@ metadata:
   namespace: demo
 spec:
   backend:
-    # local:
-    #   mountPath: /hello
-    #   persistentVolumeClaim:
-    #     claimName: pvc
-    # storageSecretName: local-secret
-    s3:
-      endpoint: http://minio.minio.svc:9000
-      bucket: backup-mongo
-      prefix: replica
-    storageSecretName: minio-secret
+    local:
+      mountPath: /hello
+      persistentVolumeClaim:
+        claimName: pvc
+    storageSecretName: local-secret
+    # s3:
+    #   endpoint: http://minio.minio.svc:9000
+    #   bucket: backup-mongo
+    #   prefix: replica
+    # s3:
+    #   endpoint: https://ap-south-1.linodeobjects.com
+    #   bucket: arnob
+    #   region: ap-south-1
+    #   prefix: /test
+    # storageSecretName: repo-secret
   usagePolicy:
     allowedNamespaces:
       from: All

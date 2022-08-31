@@ -18,8 +18,8 @@ spec:
       kind: AppBinding
       name: checker
       namespace: demo
-  # runtimeSettings:
-  #   pod:
-  #     serviceAccountName: cross-namespace-target-reader
+  runtimeSettings:
+    pod:
+      serviceAccountName: cross-namespace-target-reader
   rules:
     - snapshots: [latest]

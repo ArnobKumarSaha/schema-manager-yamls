@@ -7,9 +7,9 @@ spec:
   database:
     serverRef:
       name: checker
-      namespace: demo
+      namespace: dev
     config:
-      name: mydb
+      name: songs
   vaultRef:
     name: vault
     namespace: demo
@@ -19,7 +19,7 @@ spec:
         namespace: dev
         kind: "ServiceAccount"
         apiGroup: ""
-    defaultTTL: "5m"
+    defaultTTL: "15m"
     maxTTL: "200h"
   init:
     initialized: false
