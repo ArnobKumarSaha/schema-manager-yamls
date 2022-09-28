@@ -9,7 +9,7 @@ spec:
       mountPath: /hello
       persistentVolumeClaim:
         claimName: pvc
-    storageSecretName: local-secret
+    storageSecretName: repo-secret
     # s3:
     #   endpoint: http://minio.minio.svc:9000
     #   bucket: backup-mongo

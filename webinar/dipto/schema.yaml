@@ -9,7 +9,7 @@ spec:
       name: checker
       namespace: dev
     config:
-      name: songs
+      name: products
   vaultRef:
     name: vault
     namespace: demo
